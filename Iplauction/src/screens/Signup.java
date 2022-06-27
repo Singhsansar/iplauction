@@ -1,18 +1,19 @@
 package screens;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import databasehandling.*;
 
 public class Signup extends JFrame {
 
@@ -57,12 +58,6 @@ public class Signup extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
-		
-		
-		
-		
-		
 		JLabel lblNewLabel_1 = new JLabel("Name:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1.setForeground(Color.WHITE);
@@ -75,6 +70,7 @@ public class Signup extends JFrame {
 		textField.setColumns(10);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Age:");
+
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(156, 227, 242, 37);
@@ -125,6 +121,7 @@ public class Signup extends JFrame {
 		lblNewLabel_1_1_1_2_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1_1_1_2_1.setBounds(416, 218, 136, 48);
 		contentPane.add(lblNewLabel_1_1_1_2_1);
+
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
 		textField_5.setBounds(527, 227, 242, 37);
@@ -149,38 +146,23 @@ public class Signup extends JFrame {
 		lblNewLabel_1_1_1_2_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1_1_1_2_1_1_1.setBounds(416, 274, 136, 48);
 		contentPane.add(lblNewLabel_1_1_1_2_1_1_1);
+
+		textField_7 = new JTextField();
+		textField_7.setColumns(10);
+		textField_7.setBounds(527, 274, 242, 37);
+		contentPane.add(textField_7);
 		
 		JLabel lblNewLabel_1_1_1_2_1_1_1_1 = new JLabel("Base Price:");
 		lblNewLabel_1_1_1_2_1_1_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1_1_2_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1_1_1_2_1_1_1_1.setBounds(416, 321, 136, 48);
 		contentPane.add(lblNewLabel_1_1_1_2_1_1_1_1);
-		
-		
-		
-	
-		
-		
-		
-		
-		
-		textField_7 = new JTextField("Email");
-		textField_7.setColumns(10);
-		textField_7.setBounds(527, 274, 242, 37);
-		contentPane.add(textField_7);
-		
-		textField_8 = new JTextField("capped");
+
+		textField_8 = new JTextField();
 		textField_8.setColumns(10);
 		textField_8.setBounds(528, 321, 241, 37);
 		contentPane.add(textField_8);
-		
-		textField_9 = new JTextField("en");
-		textField_9.setBounds(156, 131, 240, 37);
-		contentPane.add(textField_9);
-		textField_9.setColumns(10);
-		
-		
-		
+
 		JLabel lblNewLabel_1_2 = new JLabel("Email:");
 		lblNewLabel_1_2.setBackground(Color.GRAY);
 		lblNewLabel_1_2.setForeground(Color.WHITE);
@@ -188,11 +170,17 @@ public class Signup extends JFrame {
 		lblNewLabel_1_2.setBounds(10, 122, 90, 48);
 		contentPane.add(lblNewLabel_1_2);
 
+		textField_9 = new JTextField();
+		textField_9.setBounds(156, 131, 240, 37);
+		contentPane.add(textField_9);
+		textField_9.setColumns(10);
+
 		JLabel lblNewLabel_1_3 = new JLabel("Password:");
 		lblNewLabel_1_3.setForeground(Color.WHITE);
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblNewLabel_1_3.setBounds(416, 122, 112, 48);
 		contentPane.add(lblNewLabel_1_3);
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(527, 133, 242, 37);
 		contentPane.add(passwordField);
@@ -211,7 +199,21 @@ public class Signup extends JFrame {
 		{														 //button action
 			public void actionPerformed(ActionEvent e) 
 			{
-
+				//textField,textField_1,textField_2,textField_3,textField_4,textField_5,textField_6,textField_7,textField_8,textField_9;
+				ArrayList<String> list = new ArrayList<String>();
+				String pass = new String(passwordField.getPassword());
+				list.add(textField_9.getText()); //email
+				list.add(pass); //password
+				list.add(textField.getText()); //Name
+				list.add(textField_1.getText()); //age
+				list.add(textField_2.getText()); //country 
+				list.add(textField_3.getText()); //Matches played
+				list.add(textField_4.getText());//Specialization
+				list.add(textField_5.getText()); //Batting 
+				list.add(textField_6.getText()); //Bowling 
+				list.add(textField_7.getText()); //C/U/A
+				list.add(textField_8.getText()); //Base price
+				Upload.addplalyer(list);
 			}
 		});
 	}

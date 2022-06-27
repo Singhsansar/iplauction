@@ -19,11 +19,14 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	public static void main(String[] args) {
+		login();
+	}
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void login() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

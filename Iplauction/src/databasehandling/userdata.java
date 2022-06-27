@@ -2,38 +2,42 @@ package databasehandling;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import functions.Func;
 import com.mongodb.client.MongoClient;
+import java.util.ArrayList;
+
 import org.bson.Document;
 public class userdata {
-    public static void adduser()
+
+    static  String url =Upload.url;
+    static MongoClient mongoClient =  MongoClients.create(url);
+    static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
+    public static void addTeam(ArrayList<String> list)
     {
-            String url ="mongodb+srv://Singh:0T4px6E8Of7YIisU@singh.rdxxovq.mongodb.net/?retryWrites=true&w=majority"; 
-            MongoClient mongoClient =  MongoClients.create(url);
-            //Func.print("Connected Successfully!!!!!!!!!");
-            MongoDatabase db = mongoClient.getDatabase("IPLAuction");
-            db.getCollection("userlist");
-            MongoCollection<org.bson.Document> collection = db.getCollection("userlist");
+            
+            db.getCollection("IPLTeams");
+            MongoCollection<org.bson.Document> collection = db.getCollection("IPLTeams");
             //System.out.println("collection is ready");
             Document docs = new Document();
-            Func.delay(5000);
-            Func.print("------------------Enter the Following details-------------------");
-            //Func.print("");
-            docs.put("Name", Func.input("Name of user: "));
-            docs.put("Age",  Func.input("Age : "));
-            docs.put("Country", Func.input("Country name : "));
-            docs.put("Mobile number",  Func.input("Mobile number : "));
-            docs.put("Email", Func.input("Email : "));
-            docs.put("Password",  Func.input("Password : "));
-            Func.delay(5000);
-            Func.print("----------------- User Added Successfully---------------------------------");
+            docs.put("Teamname",list.get(2));
+            docs.put("TeamManagerName",list.get(3) );
+            docs.put("TeamID",list.get(4) );
+            docs.put("Email", list.get(0));
+            docs.put("password",  list.get(1));
+            docs.put("Amount",  list.get(5));
             collection.insertOne(docs);
+            Createuser(list, "team");
     }
-    //Search the user lfor the passlword Credentials 
-    public void searchuser()
+    public static void Createuser(ArrayList<String> list , String role)
     {
-        //String name = Func.input("Enter the Name of the player : ");
-        //String country = Func.input("Enter the country of the player : ");
+            db.getCollection("Users");
+            MongoCollection<org.bson.Document> collection = db.getCollection("Users");
+            Document docs = new Document();
+            docs.put("Email", list.get(0));
+            docs.put("password",list.get(1));
+            docs.put("Role", role);
+            collection.insertOne(docs);
+            
+
     }
     
 }
