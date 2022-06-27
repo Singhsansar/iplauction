@@ -4,14 +4,8 @@ public class CheckCredentials
 {
     public static boolean validate(String email , String password)
     {
-        if(password.equals("Singh"))   // check for the Password if true , if false 
-        {
-            return true;
-        }     
-        else 
-        {
+        System.out.println(email +" " +password);
         return false;
-       }
         
     }
 }

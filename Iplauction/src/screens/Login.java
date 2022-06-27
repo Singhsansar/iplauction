@@ -1,5 +1,5 @@
-package iplauctionsystem;
-import java.awt.BorderLayout;
+package screens;
+import credentials.*;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -65,14 +65,21 @@ public class Login extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		passwordField = new JPasswordField();
+		
+		
+		passwordField = new JPasswordField(20);
 		passwordField.setBounds(376, 364, 303, 40);
 		contentPane.add(passwordField);
+		
 		
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String email = textField.getText();
+				String password = new String(passwordField.getPassword());
+				CheckCredentials.validate(email, password);	
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 21));
@@ -84,7 +91,10 @@ public class Login extends JFrame {
 		btnNewButton_1.setForeground(Color.BLACK);
 		btnNewButton_1.setBackground(Color.GREEN);
 		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				Signup.Register();
+															//redirect to the Signup page 
 			}
 		});
 		btnNewButton_1.setBounds(472, 475, 109, 33);

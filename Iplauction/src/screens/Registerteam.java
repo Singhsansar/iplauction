@@ -1,4 +1,4 @@
-import java.awt.BorderLayout;
+package screens;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -27,7 +27,7 @@ public class Registerteam extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void RegisterTeam() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
