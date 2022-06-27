@@ -41,8 +41,7 @@ public class Upload
     //Search the player to show the profile 
     public void searchplayer()
     {
-        //String name = Func.input("Enter the Name of the player : ");
-        //String country = Func.input("Enter the country of the player : ");
+        
     }
    
 }

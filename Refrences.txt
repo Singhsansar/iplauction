@@ -1,0 +1,54 @@
+        static Integer[] player_array=new Integer[12];
+        static Functionality fun = Functionality.getInstance();
+        static MongoClient client=MongoClients.create("mongodb+srv://playerdb:playerdb@playerdb.ho8dm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+        static MongoDatabase db=client.getDatabase("AuctionDB");
+        static MongoCollection col=db.getCollection("Players");
+        public static int T1Purse,T2Purse,T3Purse,T4Purse;
+
+ public static void onePlayer(int PlayerIndex){
+        
+        Document abc=(Document) col.find(new Document("_id",player_array[PlayerIndex])).first();
+       
+        AuctionDisplay.PlayerName.setText(""+abc.get("Name"));
+        AuctionDisplay.PlayerRole.setText(""+abc.get("Role"));
+        AuctionDisplay.PlayerBasePrice.setText(""+abc.get("BasePrice"));
+        AuctionDisplay.PlayerRating.setText(""+abc.get("Rating"));
+        AuctionDisplay.CurrentPriceTeam.setText(""+abc.get("BasePrice"));
+        fun.setBidIncrement(Integer.parseInt(""+abc.get("BasePrice")));
+        T1Purse=Integer.parseInt(AuctionDisplay.Team1Purse.getText());
+        T2Purse=Integer.parseInt(AuctionDisplay.Team2Purse.getText());
+        T3Purse=Integer.parseInt(AuctionDisplay.Team3Purse.getText());
+        T4Purse=Integer.parseInt(AuctionDisplay.Team4Purse.getText());
+                
+    }
+
+    void timer()
+    {
+        timer = new Timer(1000, (ActionEvent e) -> {
+            second--;
+            AuctionDisplay.Timer.setText(second+"");
+            if (second<=0)
+            {timer.stop();
+            AuctionDisplay.Timer.setText("0");
+            EndBid();
+            }
+        });
+        
+                }
+    void timerStatus(int status)
+    {
+        second=16;
+        if (status==0)
+        timer.start();
+        else
+        timer.restart();    
+    }
+
+
+        // FindIterable<org.bson.Document> iterDoc = collection.find();
+        //Iterator it = iterDoc.iterator();
+        //it will retrive and show entire documents 
+        // while (it.hasNext()) {
+        //         System.out.println(it.next());
+        //         i++;
+        //     }

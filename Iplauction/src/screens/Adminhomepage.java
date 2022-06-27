@@ -52,7 +52,7 @@ public class Adminhomepage extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(344, 363, 220, 83);
+		btnNewButton.setBounds(309, 352, 194, 53);
 		contentPane.add(btnNewButton);
 		
 		JButton btnStartauction = new JButton("StartAuction");
@@ -63,7 +63,7 @@ public class Adminhomepage extends JFrame {
 			}
 		});
 		btnStartauction.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnStartauction.setBounds(593, 363, 220, 83);
+		btnStartauction.setBounds(513, 352, 220, 53);
 		contentPane.add(btnStartauction);
 		
 		JButton btnPlayers = new JButton("Players");
@@ -74,7 +74,7 @@ public class Adminhomepage extends JFrame {
 			}
 		});
 		btnPlayers.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnPlayers.setBounds(100, 363, 220, 83);
+		btnPlayers.setBounds(112, 352, 187, 53);
 		contentPane.add(btnPlayers);
 		
 		JLabel lblNewLabel_1 = new JLabel("Welcome Admin, Have a good day ");
@@ -83,6 +83,13 @@ public class Adminhomepage extends JFrame {
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblNewLabel_1.setBounds(259, 274, 419, 40);
 		contentPane.add(lblNewLabel_1);
+		
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.setForeground(Color.WHITE);
+		btnLogout.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnLogout.setBackground(Color.ORANGE);
+		btnLogout.setBounds(295, 422, 220, 40);
+		contentPane.add(btnLogout);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Adminhomepage.class.getResource("/assests/admin.png")));

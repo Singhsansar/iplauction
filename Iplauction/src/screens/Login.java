@@ -1,5 +1,5 @@
 package screens;
-import credentials.*;
+import databasehandling.CheckCredentials;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,6 +20,7 @@ public class Login extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	public static void main(String[] args) {
+		//CheckCredentials.validate("singhsansar433@gmail.com", "Devil");
 		login();
 	}
 

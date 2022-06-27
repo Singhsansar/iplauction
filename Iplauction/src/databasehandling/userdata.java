@@ -25,7 +25,7 @@ public class userdata {
             docs.put("password",  list.get(1));
             docs.put("Amount",  list.get(5));
             collection.insertOne(docs);
-            Createuser(list, "team");
+            //Createuser(list, "team");
     }
     public static void Createuser(ArrayList<String> list , String role)
     {
@@ -36,6 +36,7 @@ public class userdata {
             docs.put("password",list.get(1));
             docs.put("Role", role);
             collection.insertOne(docs);
+        
             
 
     }
