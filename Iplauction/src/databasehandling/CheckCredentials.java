@@ -1,11 +1,7 @@
 package databasehandling;
-import java.nio.file.DirectoryStream.Filter;
-
 import org.bson.Document;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
-import com.mongodb.client.model.Filters;
-
 import screens.Adminhomepage;
 import screens.AuctionDisplay;
 import screens.TeamHome;
@@ -28,23 +24,17 @@ public class CheckCredentials
         String Role ="";
         db.getCollection("Users");
         MongoCollection<org.bson.Document> collection = db.getCollection("Users");
-
-
         BasicDBObject searchQuery = new BasicDBObject();
         searchQuery.put("Email", email);
         MongoCursor<org.bson.Document> cursor = collection.find(searchQuery).iterator();
-        
-        
         
         while (cursor.hasNext()) {
            Document data =  cursor.next();
             Email =(String) data.get("Email"); //return the email
             pass = (String) data.get("password");
-            
             Role = (String) data.get("Role");
-           
         }
-
+        
         if(Email.equals(email) && pass.equals(password))
         {
             if(Role.equals("admin")) 
@@ -53,12 +43,14 @@ public class CheckCredentials
             AuctionDisplay.enter_auction();
             else 
             TeamHome.Team_home();
+
         }
         else 
         {
             popup.popup_sreen("Invalid Login ID/password");
             //pop pu with msg of invalid Credentials 
         }
+
         
     }
 }

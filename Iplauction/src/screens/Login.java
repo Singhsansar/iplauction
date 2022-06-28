@@ -22,6 +22,7 @@ public class Login extends JFrame {
 	public static void main(String[] args) {
 		//CheckCredentials.validate("singhsansar433@gmail.com", "Devil");
 		login();
+		//popup.popup_sreen("working");
 	}
 
 	/**
@@ -33,6 +34,7 @@ public class Login extends JFrame {
 				try {
 					Login frame = new Login();
 					frame.setVisible(true);
+					frame.dispose();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

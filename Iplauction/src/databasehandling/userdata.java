@@ -1,7 +1,12 @@
 package databasehandling;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+
+import screens.popup;
+
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoClient;
 import java.util.ArrayList;
 
@@ -11,6 +16,8 @@ public class userdata {
     static  String url =Upload.url;
     static MongoClient mongoClient =  MongoClients.create(url);
     static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
+    
+public static boolean validate;
     public static void addTeam(ArrayList<String> list)
     {
             
@@ -24,21 +31,48 @@ public class userdata {
             docs.put("Email", list.get(0));
             docs.put("password",  list.get(1));
             docs.put("Amount",  list.get(5));
-            collection.insertOne(docs);
-            //Createuser(list, "team");
+            if(exists(list.get(0)))
+            {
+                collection.insertOne(docs);
+                Createuser(list, "TeamManager");
+            }
+            else
+            {
+                popup.popup_sreen("Email is already registered,Enter valid Email");
+            }
+            
     }
     public static void Createuser(ArrayList<String> list , String role)
     {
             db.getCollection("Users");
-            MongoCollection<org.bson.Document> collection = db.getCollection("Users");
+            MongoCollection<org.bson.Document> collection2 = db.getCollection("Users");
             Document docs = new Document();
             docs.put("Email", list.get(0));
             docs.put("password",list.get(1));
             docs.put("Role", role);
-            collection.insertOne(docs);
-        
-            
+            collection2.insertOne(docs);   
 
+    }
+    public static boolean exists(String email)
+    {
+        String Email ="";
+        db.getCollection("Users");
+        MongoCollection<org.bson.Document> collection = db.getCollection("Users");
+        BasicDBObject searchQuery = new BasicDBObject();
+        searchQuery.put("Email", email);
+        MongoCursor<org.bson.Document> cursor = collection.find(searchQuery).iterator();
+        
+        while (cursor.hasNext()) {
+           Document data =  cursor.next();
+            Email =(String) data.get("Email"); //return the email
+           
+        }
+        if(Email !=null)
+        {
+                return true;
+        }
+        
+        return false;
     }
     
 }

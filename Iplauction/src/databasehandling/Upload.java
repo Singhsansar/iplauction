@@ -16,11 +16,10 @@ public class Upload
        static  MongoDatabase db = mongoClient.getDatabase("IPLAuction");
     public static void addplalyer(ArrayList<String> list)
     {
+        if(userdata.validate)
             db.getCollection("playerList");
             MongoCollection<org.bson.Document> collection = db.getCollection("playerList");
-            //System.out.println("collection is ready");
             Document docs = new Document();
-            //Func.delay(1000);
             docs.put("Email", list.get(0));
             docs.put("Password",  list.get(1));
             docs.put("Name",  list.get(2));
@@ -34,7 +33,15 @@ public class Upload
             docs.put("Base Price",  list.get(10));
             collection.insertOne(docs);
             Func.print("-----------------player Added Successfully---------------------------------");
-            userdata.Createuser(list, "Player");
+
+            if(userdata.exists(list.get(0)))
+            {
+                collection.insertOne(docs);
+                userdata.Createuser(list, "Player");
+            }
+            else
+                popup.popup_sreen("Email is already registered,Enter valid Email");
+            
             Login.login();
     }
 
