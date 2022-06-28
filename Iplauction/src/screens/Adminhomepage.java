@@ -14,87 +14,84 @@ import java.awt.Color;
 
 public class Adminhomepage extends JFrame {
 
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
+	private static JPanel contentPane;
+	static Adminhomepage frame = new Adminhomepage();
+					
 	public static void Admin_home() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					Adminhomepage frame = new Adminhomepage();
 					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+					frame.setTitle("Homepage");
+					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					frame.setBounds(100, 100, 887, 570);
+					contentPane = new JPanel();
+					contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+					frame.setContentPane(contentPane);
+					contentPane.setLayout(null);
+					
+					JButton btnNewButton = new JButton("RegisterTeam ");
+					btnNewButton.setForeground(Color.WHITE);
+					btnNewButton.setBackground(Color.ORANGE);
+					btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 20));
+					btnNewButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) 
+						{
+							Registerteam.RegisterTeam();
+						}
+					});
+					btnNewButton.setBounds(309, 352, 194, 53);
+					contentPane.add(btnNewButton);
+					
+					JButton btnStartauction = new JButton("StartAuction");
+					btnStartauction.setForeground(Color.WHITE);
+					btnStartauction.setBackground(Color.ORANGE);
+					btnStartauction.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+						}
+					});
+					btnStartauction.setFont(new Font("Tahoma", Font.BOLD, 20));
+					btnStartauction.setBounds(513, 352, 220, 53);
+					contentPane.add(btnStartauction);
+					
+					JButton btnPlayers = new JButton("Players");
+					btnPlayers.setForeground(Color.WHITE);
+					btnPlayers.setBackground(Color.ORANGE);
+					btnPlayers.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+						}
+					});
+					btnPlayers.setFont(new Font("Tahoma", Font.BOLD, 20));
+					btnPlayers.setBounds(112, 352, 187, 53);
+					contentPane.add(btnPlayers);
+					
+					JLabel lblNewLabel_1 = new JLabel("Welcome Admin, Have a good day ");
+					lblNewLabel_1.setBackground(Color.GREEN);
+					lblNewLabel_1.setForeground(Color.WHITE);
+					lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 24));
+					lblNewLabel_1.setBounds(259, 274, 419, 40);
+					contentPane.add(lblNewLabel_1);
+					
+					JButton btnLogout = new JButton("Logout");
+					btnLogout.setForeground(Color.WHITE);
+					btnLogout.setFont(new Font("Tahoma", Font.BOLD, 20));
+					btnLogout.setBackground(Color.ORANGE);
+					btnLogout.setBounds(295, 422, 220, 40);
+					contentPane.add(btnLogout);
+					btnLogout.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e)
+						{
+							Login.login();
+						
+						}
+					});
 
-	/**
-	 * Create the frame.
-	 */
-	public Adminhomepage() {
-		setTitle("Homepage");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 887, 570);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JButton btnNewButton = new JButton("RegisterTeam ");
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.ORANGE);
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+					
+					JLabel lblNewLabel = new JLabel("");
+					lblNewLabel.setIcon(new ImageIcon(Adminhomepage.class.getResource("/assests/admin.png")));
+					lblNewLabel.setBounds(0, 0, 873, 533);
+					contentPane.add(lblNewLabel);
 			}
 		});
-		btnNewButton.setBounds(309, 352, 194, 53);
-		contentPane.add(btnNewButton);
-		
-		JButton btnStartauction = new JButton("StartAuction");
-		btnStartauction.setForeground(Color.WHITE);
-		btnStartauction.setBackground(Color.ORANGE);
-		btnStartauction.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnStartauction.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnStartauction.setBounds(513, 352, 220, 53);
-		contentPane.add(btnStartauction);
-		
-		JButton btnPlayers = new JButton("Players");
-		btnPlayers.setForeground(Color.WHITE);
-		btnPlayers.setBackground(Color.ORANGE);
-		btnPlayers.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnPlayers.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnPlayers.setBounds(112, 352, 187, 53);
-		contentPane.add(btnPlayers);
-		
-		JLabel lblNewLabel_1 = new JLabel("Welcome Admin, Have a good day ");
-		lblNewLabel_1.setBackground(Color.GREEN);
-		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblNewLabel_1.setBounds(259, 274, 419, 40);
-		contentPane.add(lblNewLabel_1);
-		
-		JButton btnLogout = new JButton("Logout");
-		btnLogout.setForeground(Color.WHITE);
-		btnLogout.setFont(new Font("Tahoma", Font.BOLD, 20));
-		btnLogout.setBackground(Color.ORANGE);
-		btnLogout.setBounds(295, 422, 220, 40);
-		contentPane.add(btnLogout);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Adminhomepage.class.getResource("/assests/admin.png")));
-		lblNewLabel.setBounds(0, 0, 873, 533);
-		contentPane.add(lblNewLabel);
 	}
 
 }

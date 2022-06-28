@@ -28,19 +28,18 @@ public class Upload
             docs.put("Specialism", list.get(6));
             docs.put("Batting", list.get(7));
             docs.put("Bowling", list.get(8));
-            docs.put("No of Ipl matches", list.get(9));
-            docs.put("C/U/A",  Func.input("capped/uncapped: "));
+            docs.put("No of Ipl matches", list.get(5));
+            docs.put("C/U/A",list.get(9));
             docs.put("Base Price",  list.get(10));
-            collection.insertOne(docs);
             Func.print("-----------------player Added Successfully---------------------------------");
 
-            if(userdata.exists(list.get(0)))
+            if(!userdata.exists(list.get(0)))
             {
                 collection.insertOne(docs);
                 userdata.Createuser(list, "Player");
             }
             else
-                popup.popup_sreen("Email is already registered,Enter valid Email");
+                {popup.popup_sreen("Email is already registered,Enter valid Email");}
             
             Login.login();
     }

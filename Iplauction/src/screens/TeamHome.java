@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
 
 public class TeamHome extends JFrame {
 
-	private JPanel contentPane;
+	private static JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -22,26 +22,15 @@ public class TeamHome extends JFrame {
 	public static void Team_home() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					TeamHome frame = new TeamHome();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public TeamHome() {
-		setTitle("TeamHomepage");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 924, 593);
+				
+		TeamHome frame = new TeamHome();
+		frame.setVisible(true);
+		frame.setTitle("TeamHomepage");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 924, 593);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Avaliable Balance");
@@ -85,6 +74,11 @@ public class TeamHome extends JFrame {
 		lblNewLabel.setIcon(new ImageIcon(TeamHome.class.getResource("/assests/admin.png")));
 		lblNewLabel.setBounds(10, 10, 900, 536);
 		contentPane.add(lblNewLabel);
+				
+			}
+		});
 	}
+
+	
 
 }

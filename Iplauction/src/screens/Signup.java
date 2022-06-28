@@ -17,18 +17,18 @@ import databasehandling.*;
 
 public class Signup extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JPasswordField passwordField;
+	private static JPanel contentPane;
+	private static JTextField textField;
+	private static JTextField textField_1;
+	private static JTextField textField_2;
+	private static JTextField textField_3;
+	private static JTextField textField_4;
+	private static JTextField textField_5;
+	private static JTextField textField_6;
+	private static JTextField textField_7;
+	private static JTextField textField_8;
+	private static JTextField textField_9;
+	private static JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -36,26 +36,14 @@ public class Signup extends JFrame {
 	public static void Register() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					Signup frame = new Signup();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public Signup() {
-		setTitle("PLayers Registration");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 809, 557);
+				Signup frame = new Signup();
+		frame.setVisible(true);
+		frame.setTitle("PLayers Registration");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 809, 557);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name:");
@@ -216,5 +204,9 @@ public class Signup extends JFrame {
 				Upload.addplalyer(list);
 			}
 		});
+			}
+		});
 	}
+
+	
 }

@@ -3,6 +3,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import databasehandling.userdata;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -16,13 +19,13 @@ import javax.swing.ImageIcon;
 
 public class Registerteam extends JFrame {
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JPasswordField passwordField;
+	private static JPanel contentPane;
+	private static JTextField textField;
+	private static JTextField textField_1;
+	private static JTextField textField_2;
+	private static JTextField textField_3;
+	private static JTextField textField_4;
+	private static JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -33,26 +36,14 @@ public class Registerteam extends JFrame {
 	 public static void RegisterTeam() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					Registerteam frame = new Registerteam();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public Registerteam() {
-		setTitle("RegisterTeam");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 878, 585);
+				Registerteam frame = new Registerteam();
+		frame.setVisible(true);
+		frame.setTitle("RegisterTeam");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 878, 585);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("TeamName:");
@@ -133,21 +124,13 @@ public class Registerteam extends JFrame {
 			{
 				ArrayList<String> list = new ArrayList<String>();
 				String pass = new String(passwordField.getPassword());
-	// 			private JPanel contentPane;
-	// private JTextField textField;
-	// private JTextField textField_1;
-	// private JTextField textField_2;
-	// private JTextField textField_3;
-	// private JTextField textField_4;
-	// private JPasswordField passwordField;
 				list.add(textField_2.getText());//email
 				list.add(pass); //password 
 				list.add(textField.getText()); //team name 
 				list.add(textField_1.getText()); //team manager name
 				list.add(textField_3.getText());//teamid
 				list.add(textField_4.getText()); //avaliable amount 
-
-				
+				userdata.addTeam(list);
 			}
 			
 		});
@@ -157,6 +140,9 @@ public class Registerteam extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(Registerteam.class.getResource("/assests/studiu.png")));
 		lblNewLabel_1.setBounds(0, 10, 864, 538);
 		contentPane.add(lblNewLabel_1);
+			}
+		});
 	}
+
 
 }

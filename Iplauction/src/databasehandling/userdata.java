@@ -4,6 +4,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
+import screens.Login;
 import screens.popup;
 
 import com.mongodb.BasicDBObject;
@@ -31,7 +32,7 @@ public static boolean validate;
             docs.put("Email", list.get(0));
             docs.put("password",  list.get(1));
             docs.put("Amount",  list.get(5));
-            if(exists(list.get(0)))
+            if(!exists(list.get(0)))
             {
                 collection.insertOne(docs);
                 Createuser(list, "TeamManager");
@@ -50,7 +51,9 @@ public static boolean validate;
             docs.put("Email", list.get(0));
             docs.put("password",list.get(1));
             docs.put("Role", role);
-            collection2.insertOne(docs);   
+            collection2.insertOne(docs); 
+            popup.popup_sreen("User added  successfully");  
+            Login.login();
 
     }
     public static boolean exists(String email)
@@ -67,8 +70,9 @@ public static boolean validate;
             Email =(String) data.get("Email"); //return the email
            
         }
-        if(Email !=null)
+        if(!Email.equals(""))
         {
+                System.out.println("User exist");
                 return true;
         }
         

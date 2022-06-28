@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 
 public class AuctionDisplay extends JFrame {
 
-	private JPanel contentPane;
+	private static JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -20,26 +20,14 @@ public class AuctionDisplay extends JFrame {
 	public static void enter_auction() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					AuctionDisplay frame = new AuctionDisplay();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public AuctionDisplay() {
-		setTitle("Auction Screen ");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 782, 602);
+				AuctionDisplay frame = new AuctionDisplay();
+		frame.setVisible(true);
+		frame.setTitle("Auction Screen ");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 782, 602);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("30");
@@ -166,5 +154,8 @@ public class AuctionDisplay extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(AuctionDisplay.class.getResource("/assests/images.png")));
 		lblNewLabel_2.setBounds(10, 10, 758, 545);
 		contentPane.add(lblNewLabel_2);
+			}
+		});
 	}
+	
 }
