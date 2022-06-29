@@ -10,7 +10,7 @@ import org.bson.Document;
 import screens.*;
 public class Upload
 {
-       static String url ="mongodb+srv://Singh:0T4px6E8Of7YIisU@singh.rdxxovq.mongodb.net/?retryWrites=true&w=majority"; 
+       static final String url ="mongodb+srv://Singh:0T4px6E8Of7YIisU@singh.rdxxovq.mongodb.net/?retryWrites=true&w=majority"; 
        static  MongoClient mongoClient =  MongoClients.create(url);
         //Func.print("Connected Successfully!!!!!!!!!");
        static  MongoDatabase db = mongoClient.getDatabase("IPLAuction");

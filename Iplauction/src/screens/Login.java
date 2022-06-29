@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Auctionhandeling.Getplayers;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -21,7 +24,8 @@ public class Login extends JFrame {
 	private static JPasswordField passwordField;
 	public static void main(String[] args) {
 		//login();
-		AuctionDisplay.enter_auction();
+		//AuctionDisplay.enter_auction();
+		Getplayers.getplayer();
 	}
 	public static void login() {
 		EventQueue.invokeLater(new Runnable() {
@@ -91,9 +95,6 @@ public class Login extends JFrame {
 				lblNewLabel_2.setIcon(new ImageIcon(Login.class.getResource("/assests/images.png")));
 				lblNewLabel_2.setBounds(0, 0, 884, 569);
 				contentPane.add(lblNewLabel_2);
-			
-			
-
 					
 			}
 		});

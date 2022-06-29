@@ -1,11 +1,14 @@
 package screens;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 
@@ -20,6 +23,7 @@ public class AuctionDisplay extends JFrame {
 	public static void enter_auction() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				
 				AuctionDisplay frame = new AuctionDisplay();
 		frame.setVisible(true);
 		frame.setTitle("Auction Screen ");
@@ -154,8 +158,53 @@ public class AuctionDisplay extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(AuctionDisplay.class.getResource("/assests/images.png")));
 		lblNewLabel_2.setBounds(10, 10, 758, 545);
 		contentPane.add(lblNewLabel_2);
+		count_down();
 			}
 		});
 	}
+	
+	 public static void count_down()
+	    {
+
+	        JFrame jframe = new JFrame();
+	        JLabel jLabel = new JLabel();
+	        jframe.setLayout(new FlowLayout());
+	        jframe.setBounds(500, 300, 400, 100);
+	        jframe.add(jLabel);
+	        jframe.setVisible(true);
+	        Timer timer = new Timer();
+	        timer.scheduleAtFixedRate(new TimerTask() {
+	            int i = 30;
+	            public void run() {
+	                jLabel.setText("Time left: " + i);
+	                //jLabel.setForeground(Color.WHITE);
+	        		jLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
+	        		jLabel.setBounds(515, 47, 132, 26);
+	                i--;
+	                if (i < 0) {
+	                    timer.cancel();
+	                    jLabel.setText("Time Over");
+	                    try {
+	                        // Delay for 1 seonds
+	                        Thread.sleep(3000);   
+	                      }
+	                      catch (InterruptedException ex)
+	                      {
+	                          ex.printStackTrace();
+	                      }
+	                    jLabel.setText("Player Reamined unsold");
+	                    try {
+	                        // Delay for 1 seonds
+	                        Thread.sleep(2000);   
+	                      }
+	                      catch (InterruptedException ex)
+	                      {
+	                          ex.printStackTrace();
+	                      }
+	                    jframe.dispose();
+	                }
+	            }
+	        }, 0, 1000);
+	    }
 	
 }

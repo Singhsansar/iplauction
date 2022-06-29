@@ -2,6 +2,7 @@ package screens;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.awt.Color;
@@ -27,7 +28,7 @@ public class popup extends JFrame {
 				// } catch (Exception e) {
 				// 	e.printStackTrace();
 				// }
-				frame.setTitle(message);
+				frame.setTitle("Alert");
 				frame.setIconImage(Toolkit.getDefaultToolkit().getImage(popup.class.getResource("/assests/admin.png")));
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setBounds(100, 100, 584, 274);
@@ -50,6 +51,7 @@ public class popup extends JFrame {
 				contentPane.add(btnNewButton);
 		
 				JLabel lblNewLabel = new JLabel(message);
+				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 				lblNewLabel.setForeground(Color.BLACK);
 				lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
 				lblNewLabel.setBounds(91, 39, 414, 61);
