@@ -4,9 +4,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Auctionhandeling.Getplayers;
-
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -25,7 +22,9 @@ public class Login extends JFrame {
 	public static void main(String[] args) {
 		//login();
 		//AuctionDisplay.enter_auction();
-		Getplayers.getplayer();
+		//Getplayers.getplayer();
+		Adminhomepage.Admin_home();
+		//AuctionDisplay.count_down();
 	}
 	public static void login() {
 		EventQueue.invokeLater(new Runnable() {

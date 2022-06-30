@@ -3,7 +3,6 @@ import org.bson.Document;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
 import screens.Adminhomepage;
-import screens.AuctionDisplay;
 import screens.TeamHome;
 import screens.popup;
 
@@ -40,8 +39,8 @@ public class CheckCredentials
             if(Role.equals("admin")) 
             Adminhomepage.Admin_home();
             else if (Role.equals("Player"))
-            AuctionDisplay.enter_auction();
-            else 
+            //AuctionDisplay.enter_auction();
+            //else 
             TeamHome.Team_home();
 
         }

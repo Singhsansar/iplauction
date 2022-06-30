@@ -1,9 +1,9 @@
 package screens;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import Auctionhandeling.Getplayers;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -47,6 +47,8 @@ public class Adminhomepage extends JFrame {
 					btnStartauction.setBackground(Color.ORANGE);
 					btnStartauction.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
+							Getplayers.getplayer();
+							Getplayers.get_next();
 						}
 					});
 					btnStartauction.setFont(new Font("Tahoma", Font.BOLD, 20));
