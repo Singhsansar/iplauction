@@ -17,10 +17,13 @@ import java.util.TimerTask;
 import java.awt.FlowLayout;
 
 public class AuctionDisplay extends JFrame {
+	static JFrame jframe_timer = new JFrame();
 
 	private static JPanel contentPane;
-	static JFrame jframe2 = new JFrame();
-	static JLabel jLabel2 = new JLabel();
+
+	/**
+	 * Launch the application.
+	 */
 	public static void enter_auction(ArrayList<String> arr) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,10 +44,8 @@ public class AuctionDisplay extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
+				jframe_timer.dispose();
 				frame.dispose();
-				jframe2.dispose();
-				jLabel2.setText("");
-				//jLabel2.setVisible(false);
 				Getplayers.get_next();
 			}
 		});
@@ -165,28 +166,33 @@ public class AuctionDisplay extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		count_down();
 	
+
+		//Getplayers.get_next();
 			}
+			
 		});
 	}
-	   public static void count_down()
+	public static void count_down()
 	    {
-	      
-	        jframe2.setLayout(new FlowLayout());
-	        jframe2.setBounds(500, 300, 400, 100);
-	        jframe2.add(jLabel2);
-	        jframe2.setVisible(true);
+
+	        
+	        JLabel jLabel = new JLabel();
+	        jframe_timer.setLayout(new FlowLayout());
+	        jframe_timer.setBounds(500, 300, 400, 100);
+	        jframe_timer.add(jLabel);
+	        jframe_timer.setVisible(true);
 	        Timer timer = new Timer();
 	        timer.scheduleAtFixedRate(new TimerTask() {
 	            int i = 30;
 	            public void run() {
-	                jLabel2.setText("Time left: " + i);
+	                jLabel.setText("Time left: " + i);
 	                //jLabel.setForeground(Color.WHITE);
-	        		jLabel2.setFont(new Font("Tahoma", Font.BOLD, 17));
-	        		jLabel2.setBounds(515, 47, 132, 26);
+	        		jLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
+	        		jLabel.setBounds(515, 47, 132, 26);
 	                i--;
 	                if (i < 0) {
 	                    timer.cancel();
-	                    jLabel2.setText("Time Over");
+	                    jLabel.setText("Time Over");
 	                    try {
 	                        // Delay for 1 seonds
 	                        Thread.sleep(3000);   
@@ -195,7 +201,7 @@ public class AuctionDisplay extends JFrame {
 	                      {
 	                          ex.printStackTrace();
 	                      }
-	                    jLabel2.setText("Player Reamined unsold");
+	                    jLabel.setText("Player Reamined unsold");
 	                    try {
 	                        // Delay for 1 seonds
 	                        Thread.sleep(2000);   
@@ -204,7 +210,7 @@ public class AuctionDisplay extends JFrame {
 	                      {
 	                          ex.printStackTrace();
 	                      }
-	                    jframe2.dispose();
+	                    jframe_timer.dispose();
 	                }
 	            }
 	        }, 0, 1000);
