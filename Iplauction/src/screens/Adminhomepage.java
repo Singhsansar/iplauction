@@ -17,9 +17,11 @@ public class Adminhomepage extends JFrame {
 	private static JPanel contentPane;
 	static Adminhomepage frame = new Adminhomepage();
 					
-	public static void Admin_home() {
+	public static void Admin_home()
+	 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+					Getplayers.getplayer();
 					frame.setVisible(true);
 					frame.setTitle("Homepage");
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,7 +30,6 @@ public class Adminhomepage extends JFrame {
 					contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 					frame.setContentPane(contentPane);
 					contentPane.setLayout(null);
-					
 					JButton btnNewButton = new JButton("RegisterTeam ");
 					btnNewButton.setForeground(Color.WHITE);
 					btnNewButton.setBackground(Color.ORANGE);
@@ -47,7 +48,6 @@ public class Adminhomepage extends JFrame {
 					btnStartauction.setBackground(Color.ORANGE);
 					btnStartauction.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							Getplayers.getplayer();
 							Getplayers.get_next();
 						}
 					});
@@ -60,6 +60,7 @@ public class Adminhomepage extends JFrame {
 					btnPlayers.setBackground(Color.ORANGE);
 					btnPlayers.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
+							Getplayers.get_one();
 						}
 					});
 					btnPlayers.setFont(new Font("Tahoma", Font.BOLD, 20));

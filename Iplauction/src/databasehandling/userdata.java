@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import org.bson.Document;
 public class userdata {
 
-    static  String url =Upload.url;
+    static  String url =userRegister.url;
     static MongoClient mongoClient =  MongoClients.create(url);
     static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
     

@@ -12,7 +12,7 @@ import screens.popup;
 //Check data base for lgetting the password 
 public class CheckCredentials
 {
-     static  String url =Upload.url;
+     static  String url =userRegister.url;
      static  MongoClient mongoClient =  MongoClients.create(url);
      static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
 

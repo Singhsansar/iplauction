@@ -201,7 +201,7 @@ public class Signup extends JFrame {
 				list.add(textField_6.getText()); //Bowling 
 				list.add(textField_7.getText()); //C/U/A
 				list.add(textField_8.getText()); //Base price
-				Upload.addplalyer(list);
+				userRegister.addplalyer(list);
 			}
 		});
 			}

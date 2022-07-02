@@ -23,8 +23,9 @@ public class Login extends JFrame {
 		//login();
 		//AuctionDisplay.enter_auction();
 		//Getplayers.getplayer();
-		Adminhomepage.Admin_home();
+		//Adminhomepage.Admin_home();
 		//AuctionDisplay.count_down();
+		TeamHome.Team_home();
 	}
 	public static void login() {
 		EventQueue.invokeLater(new Runnable() {
