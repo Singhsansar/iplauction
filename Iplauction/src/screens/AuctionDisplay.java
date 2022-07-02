@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import Auctionhandeling.Getplayers;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -14,10 +15,11 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.awt.FlowLayout;
 
 public class AuctionDisplay extends JFrame {
-	static JFrame jframe_timer = new JFrame();
+	//static JFrame jframe_timer = new JFrame();
+	
+	
 
 	private static JPanel contentPane;
 
@@ -44,7 +46,6 @@ public class AuctionDisplay extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				jframe_timer.dispose();
 				frame.dispose();
 				Getplayers.get_next();
 			}
@@ -159,15 +160,14 @@ public class AuctionDisplay extends JFrame {
 		lblCua_2_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1_1_1.setBounds(590, 353, 155, 42);
 		contentPane.add(lblCua_2_1_1_1_1_1_1_1);
+
+		count_down();
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(AuctionDisplay.class.getResource("/assests/images.png")));
 		lblNewLabel_2.setBounds(10, 10, 758, 545);
 		contentPane.add(lblNewLabel_2);
-		count_down();
-	
 
-		//Getplayers.get_next();
 			}
 			
 		});
@@ -175,21 +175,22 @@ public class AuctionDisplay extends JFrame {
 	public static void count_down()
 	    {
 
-	        
 	        JLabel jLabel = new JLabel();
-	        jframe_timer.setLayout(new FlowLayout());
-	        jframe_timer.setBounds(500, 300, 400, 100);
-	        jframe_timer.add(jLabel);
-	        jframe_timer.setVisible(true);
+			jLabel.setForeground(Color.WHITE);
+			jLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
+			jLabel.setBounds(540, 20, 250, 30);
+			contentPane.add(jLabel);
+			
+	        jLabel.setVisible(true);
+			contentPane.add(jLabel);
 	        Timer timer = new Timer();
+			
 	        timer.scheduleAtFixedRate(new TimerTask() {
-	            int i = 30;
+	            int i = 10;
 	            public void run() {
 	                jLabel.setText("Time left: " + i);
-	                //jLabel.setForeground(Color.WHITE);
-	        		jLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
-	        		jLabel.setBounds(515, 47, 132, 26);
 	                i--;
+					
 	                if (i < 0) {
 	                    timer.cancel();
 	                    jLabel.setText("Time Over");
@@ -210,7 +211,7 @@ public class AuctionDisplay extends JFrame {
 	                      {
 	                          ex.printStackTrace();
 	                      }
-	                    jframe_timer.dispose();
+	                   
 	                }
 	            }
 	        }, 0, 1000);

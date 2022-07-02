@@ -11,17 +11,18 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
+
 
 	private static JPanel contentPane;
 	private static JTextField textField;
 	private static JPasswordField passwordField;
 	public static void main(String[] args) {
 		//login();
-		//AuctionDisplay.enter_auction();
 		//Getplayers.getplayer();
 		Adminhomepage.Admin_home();
 		//AuctionDisplay.count_down();
