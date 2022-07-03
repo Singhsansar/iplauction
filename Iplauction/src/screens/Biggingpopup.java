@@ -1,3 +1,4 @@
+package screens;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,7 +14,7 @@ import java.awt.Dimension;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 
-public class firstStage extends JFrame {
+public class Biggingpopup extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel_1;
@@ -25,7 +26,7 @@ public class firstStage extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					firstStage frame = new firstStage();
+					Biggingpopup frame = new Biggingpopup();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,7 +38,7 @@ public class firstStage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public firstStage() {
+	public Biggingpopup() {
 		setTitle("Bidding page ");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 537, 298);
@@ -72,7 +73,7 @@ public class firstStage extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(firstStage.class.getResource("/assests/Auctiondisplay.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(Biggingpopup.class.getResource("/assests/Auctiondisplay.png")));
 		lblNewLabel_1.setBounds(0, 10, 513, 241);
 		contentPane.add(lblNewLabel_1);
 	}
