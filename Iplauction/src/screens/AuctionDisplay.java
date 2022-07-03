@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import Auctionhandeling.Getplayers;
+import Auctionhandeling.unsoldplayerhnadeling;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -14,17 +15,15 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.awt.FlowLayout;
-
 public class AuctionDisplay extends JFrame {
-	static JFrame jframe_timer = new JFrame();
+	static JLabel jLabel = new JLabel();
 
 	private static JPanel contentPane;
 
-	
+
 	public static void enter_auction(ArrayList<String> arr) {
 		EventQueue.invokeLater(new Runnable() {
-		public void run() {
+			public void run() {
 				
 		AuctionDisplay frame = new AuctionDisplay();
 		frame.setVisible(true);
@@ -42,8 +41,9 @@ public class AuctionDisplay extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				jframe_timer.dispose();
+				//jframe_timer.dispose();
 				frame.dispose();
+				jLabel.removeAll();
 				Getplayers.get_next();
 			}
 		});
@@ -150,7 +150,7 @@ public class AuctionDisplay extends JFrame {
 		lblCua_2_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1_1.setBounds(641, 421, 155, 42);
-		contentPane.add(lblCua_2_1_1_1_1_1_1);
+		contentPane.add(lblCua_2_1_1_1_1_1_1);		
 		
 		JLabel lblCua_2_1_1_1_1_1_1_1 = new JLabel(arr.get(6).toString());
 		lblCua_2_1_1_1_1_1_1_1.setForeground(Color.WHITE);
@@ -158,37 +158,39 @@ public class AuctionDisplay extends JFrame {
 		lblCua_2_1_1_1_1_1_1_1.setBounds(590, 353, 155, 42);
 		contentPane.add(lblCua_2_1_1_1_1_1_1_1);
 		
+		count_down(arr);
+
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(AuctionDisplay.class.getResource("/assests/images.png")));
 		lblNewLabel_2.setBounds(10, 10, 758, 545);
 		contentPane.add(lblNewLabel_2);
-		count_down();
 		
 			}
 			
 		});
 	}
-	public static void count_down()
+	public static void count_down(ArrayList<String> arr)
 	    {
 
 	        
-	        JLabel jLabel = new JLabel();
-	        jframe_timer.setLayout(new FlowLayout());
-	        jframe_timer.setBounds(500, 300, 400, 100);
-	        jframe_timer.add(jLabel);
-	        jframe_timer.setVisible(true);
+	       JLabel timJLabel = new JLabel();
+		   timJLabel.setForeground(Color.WHITE);
+		   timJLabel.setBounds(550, 20, 200, 50);
+		   timJLabel.setFont(new Font("Tahoma", Font.BOLD, 22));
+		   contentPane.add(timJLabel);
+		   timJLabel.setVisible(true);
+	
 	        Timer timer = new Timer();
-	        timer.scheduleAtFixedRate(new TimerTask() {
-	            int i = 30;
+	        timer.scheduleAtFixedRate(new TimerTask() 
+			{
+	            int i = 60;
 	            public void run() {
-	                jLabel.setText("Time left: " + i);
-	                //jLabel.setForeground(Color.WHITE);
-	        		jLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
-	        		jLabel.setBounds(515, 47, 132, 26);
+	                timJLabel.setText("Time left: " + i);
 	                i--;
 	                if (i < 0) {
 	                    timer.cancel();
-	                    jLabel.setText("Time Over");
+
+	                    timJLabel.setText("Time Over");
 	                    try {
 	                        // Delay for 1 seonds
 	                        Thread.sleep(3000);   
@@ -197,19 +199,14 @@ public class AuctionDisplay extends JFrame {
 	                      {
 	                          ex.printStackTrace();
 	                      }
-	                    jLabel.setText("Player Reamined unsold");
-	                    try {
-	                        // Delay for 1 seonds
-	                        Thread.sleep(2000);   
-	                      }
-	                      catch (InterruptedException ex)
-	                      {
-	                          ex.printStackTrace();
-	                      }
-	                    jframe_timer.dispose();
+
+							popup.popup_sreen("Player Remained Unsold");
+	                    	timJLabel.setText("Player Reamined unsold");
+							unsoldplayerhnadeling.add_unsold(arr);
 	                }
 	            }
 	        }, 0, 1000);
+			
 			
 	    }
 	

@@ -60,49 +60,52 @@ public class Getplayers {
     }
     public static void get_next()
     {
-     ArrayList<String> abc= linklist.get(i);
+      ArrayList<String> abc= linklist.get(i);
       i = i+1; 
-      if(i<0)
+      if(i<linklist.size())
       AuctionDisplay.enter_auction(abc);
+      else if(i==linklist.size())
+      {
+        popup.popup_sreen("Auction finished \n ,will start again with unsold Players");
+        unsoldplayerhnadeling.get_unsold();
+      }
       else 
-      popup.popup_sreen("Auction finished");
+       unsoldplayerhnadeling.get_unsold();
     }
 
 
     public static void get_one()
     {
-      ArrayList<String> abc= linklist.get(j);
+        ArrayList<String> abc= linklist.get(j);
        j = j+1;
-       if(j>=linklist.size())
-       {
+       if(j>=linklist.size()){
         j = linklist.size()-1;
         playerlist.player_list(linklist.get(j));
         popup.popup_sreen("No more Players avaliable");
-        return;
-       }
-       ;
+        return;}
        playerlist.player_list(abc);
     }
     public static void get_previous()
     {
        j = j-1; 
        if(j<0)
-       {
-          j = 0 ;
+       {  j = 0 ;
           ArrayList<String> abc= linklist.get(0);
           playerlist.player_list(abc);
           popup.popup_sreen("End of List");
-          return;
-       } 
+          return;}
+           
        else 
-       {
-          
+       { 
           ArrayList<String> abc= linklist.get(j);
           playerlist.player_list(abc);
-
        }
        
     }
+    public static void get_same()
+    {ArrayList<String> abc= linklist.get(i);
+      AuctionDisplay.enter_auction(abc);}
+
 
     public static void delete_this()
     { j = j -1; 
