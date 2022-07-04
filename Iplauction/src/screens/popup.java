@@ -37,6 +37,14 @@ public class popup extends JFrame {
 				btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 				btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					try {
+						// Delay for 1 seonds
+						Thread.sleep(2000);   
+					  }
+					  catch (InterruptedException ex)
+					  {
+						  ex.printStackTrace();
+					  }
 				frame.dispose();
 			
 			}
@@ -57,14 +65,7 @@ public class popup extends JFrame {
 	}
 	public static void popup_close()
 	{
-		try {
-			// Delay for 1 seonds
-			Thread.sleep(2000);   
-		  }
-		  catch (InterruptedException ex)
-		  {
-			  ex.printStackTrace();
-		  }
+		
 		frame.dispose();
 	}
 

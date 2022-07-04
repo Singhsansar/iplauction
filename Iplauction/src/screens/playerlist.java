@@ -35,6 +35,20 @@ public class playerlist extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		JButton homeButton = new JButton("Home ");
+					homeButton.setForeground(Color.WHITE);
+					homeButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+					homeButton.setBackground(Color.BLACK);
+					homeButton.setBounds(20, 25, 140, 34);
+					contentPane.add(homeButton);
+					homeButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) 
+						{
+							dispose_frame();
+							Adminhomepage.Admin_home();
+						}
+					});
 		
 		JButton btnNewButton = new JButton("Next Player");
 		btnNewButton.setForeground(Color.WHITE);
@@ -196,6 +210,10 @@ public class playerlist extends JFrame {
 				
 			}
 		});
+	}
+	public static void dispose_frame()
+	{
+		frame.dispose();
 	}
 
 	

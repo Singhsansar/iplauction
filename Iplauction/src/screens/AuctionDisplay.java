@@ -16,8 +16,11 @@ import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
 public class AuctionDisplay extends JFrame {
+	static JLabel timJLabel = new JLabel();
 	static JLabel jLabel = new JLabel();
-
+	static AuctionDisplay frame = new AuctionDisplay();
+	static Timer timer = new Timer();
+	static ArrayList<String> list;
 	private static JPanel contentPane;
 
 
@@ -25,7 +28,7 @@ public class AuctionDisplay extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				
-		AuctionDisplay frame = new AuctionDisplay();
+		list = arr;
 		frame.setVisible(true);
 		frame.setTitle("Auction Screen ");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,6 +38,21 @@ public class AuctionDisplay extends JFrame {
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+
+			JButton homeButton = new JButton("Home ");
+					homeButton.setForeground(Color.WHITE);
+					homeButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+					homeButton.setBackground(Color.BLACK);
+					homeButton.setBounds(20, 25, 140, 34);
+					contentPane.add(homeButton);
+					homeButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) 
+						{
+							dispose_frame();
+							Adminhomepage.Admin_home();
+						}
+					});
+
 		JButton btnNewButton = new JButton("Next Player");
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -173,14 +191,14 @@ public class AuctionDisplay extends JFrame {
 	    {
 
 	        
-	       JLabel timJLabel = new JLabel();
+	       
 		   timJLabel.setForeground(Color.WHITE);
 		   timJLabel.setBounds(550, 20, 200, 50);
 		   timJLabel.setFont(new Font("Tahoma", Font.BOLD, 22));
 		   contentPane.add(timJLabel);
 		   timJLabel.setVisible(true);
 	
-	        Timer timer = new Timer();
+	        
 	        timer.scheduleAtFixedRate(new TimerTask() 
 			{
 	            int i = 60;
@@ -192,24 +210,28 @@ public class AuctionDisplay extends JFrame {
 
 	                    timJLabel.setText("Time Over");
 	                    try {
-	                        // Delay for 1 seonds
 	                        Thread.sleep(3000);   
 	                      }
 	                      catch (InterruptedException ex)
 	                      {
 	                          ex.printStackTrace();
 	                      }
-
+						  unsoldplayerhnadeling.add_unsold(arr);
 							popup.popup_sreen("Player Remained Unsold");
 	                    	timJLabel.setText("Player Reamined unsold");
-							unsoldplayerhnadeling.add_unsold(arr);
+							
 	                }
 	            }
 	        }, 0, 1000);
 			
 			
 	    }
-	
-	 
+
+		public static void dispose_frame()
+	{
+		timer.cancel();
+		timJLabel.removeAll();
+		frame.dispose();
+	}	 
 	
 }

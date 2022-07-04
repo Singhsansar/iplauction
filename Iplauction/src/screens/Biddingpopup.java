@@ -14,37 +14,25 @@ import java.awt.Dimension;
 import java.awt.Component;
 import javax.swing.ImageIcon;
 
-public class Biggingpopup extends JFrame {
+public class Biddingpopup extends JFrame {
+	static Biddingpopup frame = new Biddingpopup();
 
-	private JPanel contentPane;
-	private JLabel lblNewLabel_1;
-
+	private static JPanel contentPane;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void Bid() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					Biggingpopup frame = new Biggingpopup();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+		
+		frame.setVisible(true);
+		frame.setTitle("Bidding page ");
 
-	/**
-	 * Create the frame.
-	 */
-	public Biggingpopup() {
-		setTitle("Bidding page ");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 537, 298);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 537, 298);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
+		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JTextField textField = new JTextField();
@@ -72,9 +60,19 @@ public class Biggingpopup extends JFrame {
 		lblNewLabel.setBounds(159, 54, 217, 40);
 		contentPane.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon(Biggingpopup.class.getResource("/assests/Auctiondisplay.png")));
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(Biddingpopup.class.getResource("/assests/Auctiondisplay.png")));
 		lblNewLabel_1.setBounds(0, 10, 513, 241);
 		contentPane.add(lblNewLabel_1);
+				
+			}
+		});
 	}
+
+	public static void dispose_frame()
+	{
+		frame.dispose();
+	}	 
+
+	
 }

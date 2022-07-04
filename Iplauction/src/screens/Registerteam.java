@@ -8,6 +8,8 @@ import databasehandling.userdata;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JPasswordField;
@@ -26,17 +28,12 @@ public class Registerteam extends JFrame {
 	private static JTextField textField_3;
 	private static JTextField textField_4;
 	private static JPasswordField passwordField;
-
-	/**
-	 * Launch the application.
-	 */
-
-		
+	static Registerteam frame = new Registerteam();
 	
 	 public static void RegisterTeam() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				Registerteam frame = new Registerteam();
+		
 		frame.setVisible(true);
 		frame.setTitle("RegisterTeam");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,6 +42,19 @@ public class Registerteam extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
+		JButton homeButton = new JButton("Home");
+					homeButton.setForeground(Color.WHITE);
+					homeButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+					homeButton.setBackground(Color.BLACK);
+					homeButton.setBounds(20, 25, 140, 34);
+					contentPane.add(homeButton);
+					homeButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) 
+						{
+							dispose_frame();
+							Adminhomepage.Admin_home();
+						}
+					});
 
 		JLabel lblNewLabel = new JLabel("TeamName:");
 		lblNewLabel.setForeground(Color.WHITE);
@@ -124,6 +134,34 @@ public class Registerteam extends JFrame {
 			{
 				ArrayList<String> list = new ArrayList<String>();
 				String pass = new String(passwordField.getPassword());
+
+				if(pass.isEmpty()) {
+					JOptionPane.showMessageDialog(passwordField, "ENTER YOUR PASSWORD");
+					return;
+				}
+				
+					if(textField.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textField, "ENTER TEAM NAME");
+					return;
+				}
+				if(textField_2.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textField_2, "ENTER  EMAIL");
+					return;
+				}
+			
+					if(textField_1.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textField_1, "ENTER TEAM MANAGER NAME");
+					return;
+				}
+				if(textField_3.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textField_3, "ENTER THE TEAM ID");
+					return;
+				}
+				if(textField_4.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(textField_4, "ENTER THE AVALIABLE AMOUNT");
+					return;
+				}
+
 				list.add(textField_2.getText());//email
 				list.add(pass); //password 
 				list.add(textField.getText()); //team name 
@@ -132,9 +170,7 @@ public class Registerteam extends JFrame {
 				list.add(textField_4.getText()); //avaliable amount 
 				userdata.addTeam(list);
 			}
-			
 		});
-		
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(Registerteam.class.getResource("/assests/studiu.png")));
@@ -142,6 +178,11 @@ public class Registerteam extends JFrame {
 		contentPane.add(lblNewLabel_1);
 			}
 		});
+	}
+
+	public static void dispose_frame()
+	{
+		frame.dispose();
 	}
 
 

@@ -30,6 +30,11 @@ public class Adminhomepage extends JFrame {
 					contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 					frame.setContentPane(contentPane);
 					contentPane.setLayout(null);
+
+					
+
+
+
 					JButton btnNewButton = new JButton("RegisterTeam ");
 					btnNewButton.setForeground(Color.WHITE);
 					btnNewButton.setBackground(Color.ORANGE);
@@ -40,6 +45,7 @@ public class Adminhomepage extends JFrame {
 							Registerteam.RegisterTeam();
 						}
 					});
+					
 					btnNewButton.setBounds(309, 352, 194, 53);
 					contentPane.add(btnNewButton);
 					
@@ -83,6 +89,15 @@ public class Adminhomepage extends JFrame {
 					btnLogout.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e)
 						{
+							playerlist.dispose_frame();
+							Registerteam.dispose_frame();
+							dispose_frame();
+							popup.popup_close();
+							TeamHome.dispose_frame();
+							Biddingpopup.dispose_frame();
+							AuctionDisplayteam.dispose_frame();
+							AuctionDisplay.dispose_frame();
+							Signup.dispose_frame();
 							Login.login();
 						
 						}
@@ -96,5 +111,8 @@ public class Adminhomepage extends JFrame {
 			}
 		});
 	}
-
+	public static void dispose_frame()
+	{
+		frame.dispose();
+	}
 }

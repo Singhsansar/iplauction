@@ -1,6 +1,5 @@
 package screens;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -16,14 +15,12 @@ public class TeamHome extends JFrame {
 
 	private static JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
+	static TeamHome frame = new TeamHome();
 	public static void Team_home() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				
-		TeamHome frame = new TeamHome();
+		
 		frame.setVisible(true);
 		frame.setTitle("TeamHomepage");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,6 +66,28 @@ public class TeamHome extends JFrame {
 		lblNewLabel_1.setBackground(Color.WHITE);
 		lblNewLabel_1.setBounds(310, 242, 317, 55);
 		contentPane.add(lblNewLabel_1);
+
+		JButton btnLogout = new JButton("Logout");
+					btnLogout.setForeground(Color.WHITE);
+					btnLogout.setFont(new Font("Tahoma", Font.BOLD, 20));
+					btnLogout.setBackground(Color.ORANGE);
+					btnLogout.setBounds(295, 422, 220, 40);
+					contentPane.add(btnLogout);
+					btnLogout.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e)
+						{
+							playerlist.dispose_frame();
+							Registerteam.dispose_frame();
+							Adminhomepage.dispose_frame();
+							popup.popup_close();
+							dispose_frame();
+							Biddingpopup.dispose_frame();
+							AuctionDisplayteam.dispose_frame();
+							Signup.dispose_frame();
+							Login.login();
+						
+						}
+					});
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(TeamHome.class.getResource("/assests/admin.png")));
@@ -79,6 +98,9 @@ public class TeamHome extends JFrame {
 		});
 	}
 
-	
+	public static void dispose_frame()
+	{
+		frame.dispose();
+	}
 
 }

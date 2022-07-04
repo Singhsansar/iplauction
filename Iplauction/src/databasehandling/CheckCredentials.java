@@ -3,8 +3,9 @@ import org.bson.Document;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
 import screens.Adminhomepage;
+import screens.Login;
 import screens.TeamHome;
-import screens.popup;
+
 
 
 
@@ -36,18 +37,12 @@ public class CheckCredentials
         
         if(Email.equals(email) && pass.equals(password))
         {
+            Login.dispose_frame();
             if(Role.equals("admin")) 
             Adminhomepage.Admin_home();
-            else if (Role.equals("Player"))
-            //AuctionDisplay.enter_auction();
-            //else 
+            else if (Role.equals("Player")) 
             TeamHome.Team_home();
 
-        }
-        else 
-        {
-            popup.popup_sreen("Invalid Login ID/password");
-            //pop pu with msg of invalid Credentials 
         }
 
         

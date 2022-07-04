@@ -3,14 +3,11 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-
 import screens.Login;
 import screens.popup;
-
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoClient;
 import java.util.ArrayList;
-
 import org.bson.Document;
 public class userdata {
 

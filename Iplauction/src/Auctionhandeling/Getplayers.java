@@ -12,7 +12,6 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import org.bson.Document;
 
-
 public class Getplayers {
 
   static LinkedList<ArrayList<String>> linklist = new LinkedList<ArrayList<String>>();
@@ -66,7 +65,26 @@ public class Getplayers {
       AuctionDisplay.enter_auction(abc);
       else if(i==linklist.size())
       {
-        popup.popup_sreen("Auction finished \n ,will start again with unsold Players");
+        popup.popup_sreen("Auction Finished");
+        try {
+          // Delay for 1 seonds
+          Thread.sleep(2000);   
+          }
+          catch (InterruptedException ex)
+          {
+            ex.printStackTrace();
+          }
+          popup.popup_close();
+          popup.popup_sreen("Starting with unsold players");
+          try {
+            // Delay for 1 seonds
+            Thread.sleep(2500);   
+            }
+            catch (InterruptedException ex)
+            {
+              ex.printStackTrace();
+            }
+
         unsoldplayerhnadeling.get_unsold();
       }
       else 

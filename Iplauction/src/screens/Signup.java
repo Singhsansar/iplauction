@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -30,13 +31,11 @@ public class Signup extends JFrame {
 	private static JTextField textField_9;
 	private static JPasswordField passwordField;
 
-	/**
-	 * Launch the application.
-	 */
+	static Signup frame = new Signup();
 	public static void Register() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				Signup frame = new Signup();
+				
 		frame.setVisible(true);
 		frame.setTitle("PLayers Registration");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,6 +44,22 @@ public class Signup extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
+
+		JButton homeButton = new JButton("Login");
+		homeButton.setForeground(Color.WHITE);
+		homeButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+		homeButton.setBackground(Color.BLUE);
+		homeButton.setBounds(20, 25, 140, 34);
+		contentPane.add(homeButton);
+		homeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				dispose_frame();
+				Login.login();
+			}
+		});
+
+
 		
 		JLabel lblNewLabel_1 = new JLabel("Name:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -116,8 +131,6 @@ public class Signup extends JFrame {
 		contentPane.add(textField_5);
 		
 		
-		
-		
 		JLabel lblNewLabel_1_1_1_2_1_1 = new JLabel("Bowling:");
 		lblNewLabel_1_1_1_2_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1_1_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -172,11 +185,6 @@ public class Signup extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(527, 133, 242, 37);
 		contentPane.add(passwordField);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Signup.class.getResource("/assests/studiu.png")));
-		lblNewLabel.setBounds(0, 25, 795, 485);
-		contentPane.add(lblNewLabel);
 
 		JButton btnNewButton = new JButton("Register");
 		btnNewButton.setBackground(Color.GREEN);
@@ -190,6 +198,55 @@ public class Signup extends JFrame {
 				//textField,textField_1,textField_2,textField_3,textField_4,textField_5,textField_6,textField_7,textField_8,textField_9;
 				ArrayList<String> list = new ArrayList<String>();
 				String pass = new String(passwordField.getPassword());
+
+
+							if(textField_9.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_9, "ENTER YOUR Email");
+							return;
+						}
+						if(pass.isEmpty()) {
+							JOptionPane.showMessageDialog(passwordField, "ENTER YOUR PASSWORD");
+							return;
+						}
+						
+
+							if(textField.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField, "ENTER YOUR NAME");
+							return;
+						}
+						if(textField_2.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_2, "ENTER YOUR COUNTRY");
+							return;
+						}
+					
+							if(textField_1.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_1, "ENTER YOUR AGE");
+							return;
+						}
+						if(textField_3.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_3, "ENTER THE MATCHES PLAYED");
+							return;
+						}
+						if(textField_4.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_4, "ENTER THE SPECIALIZATION");
+							return;
+						}
+						if(textField_5.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_5, "ENTER BATTING");
+							return;
+						}
+						if(textField_6.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_6, "ENTER  BOWLING");
+							return;
+						}
+						if(textField_7.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_7, "ENTER C/U/A");
+							return;
+						}
+						if(textField_8.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(textField_7, "ENTER BASE PRICE");
+							return;
+						}
 				list.add(textField_9.getText()); //email
 				list.add(pass); //password
 				list.add(textField.getText()); //Name
@@ -204,9 +261,25 @@ public class Signup extends JFrame {
 				userRegister.addplalyer(list);
 			}
 		});
-			}
-		});
+			
+
+
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Signup.class.getResource("/assests/studiu.png")));
+		lblNewLabel.setBounds(0, 25, 795, 485);
+		contentPane.add(lblNewLabel);
+		
+
+		
+		}});
 	}
+
+	public static void dispose_frame()
+	{
+		frame.dispose();
+	}
+	
 
 	
 }

@@ -2,6 +2,7 @@ package Auctionhandeling;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+
 import screens.AuctionDisplay;
 public class unsoldplayerhnadeling 
 {
@@ -26,8 +27,8 @@ public class unsoldplayerhnadeling
         
        ArrayList<String> arr = new ArrayList<String>();
        arr = q.remove();
-       AuctionDisplay.enter_auction(arr);
+      AuctionDisplay.enter_auction(arr);
     }
     
-    
+     
 }

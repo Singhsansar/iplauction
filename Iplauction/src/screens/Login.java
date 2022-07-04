@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -18,19 +20,21 @@ public class Login extends JFrame {
 
 	private static JPanel contentPane;
 	private static JTextField textField;
+	private static Login frame = new Login();
 	private static JPasswordField passwordField;
 	public static void main(String[] args) {
 		//login();
 		//AuctionDisplay.enter_auction();
 		//Getplayers.getplayer();
 		Adminhomepage.Admin_home();
+		//Signup.Register();
 		//AuctionDisplay.count_down();
 		//TeamHome.Team_home();
 	}
 	public static void login() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				Login frame = new Login();
+				
 				frame.setVisible(true);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setBounds(100, 100, 879, 606);
@@ -68,8 +72,16 @@ public class Login extends JFrame {
 					{
 						String email = textField.getText();
 						String password = new String(passwordField.getPassword());
-						//frame.dispose();
+							if(email.isEmpty()) {
+							JOptionPane.showMessageDialog(textField, "ENTER YOUR Email");
+							return;
+						}
+						if(password.isEmpty()) {
+							JOptionPane.showMessageDialog(textField, "ENTER YOUR PASSWORD");
+							return;
+						}
 						CheckCredentials.validate(email, password);	
+						JOptionPane.showMessageDialog(textField,"Invalid Login ID/password");  
 					}
 				});
 				btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 21));
@@ -98,6 +110,10 @@ public class Login extends JFrame {
 					
 			}
 		});
+	}
+	public static void dispose_frame()
+	{
+		frame.dispose();
 	}
 
 	
