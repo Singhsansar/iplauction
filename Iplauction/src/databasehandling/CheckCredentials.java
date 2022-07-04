@@ -7,6 +7,7 @@ import Auctionhandeling.Getplayers;
 import screens.Adminhomepage;
 import screens.Login;
 import screens.TeamHome;
+import screens.popup;
 
 
 
@@ -44,13 +45,17 @@ public class CheckCredentials
             Login.dispose_frame();
             if(Role.equals("admin"))
             {
-                Getplayers.getplayer();
+                
                 Adminhomepage.Admin_home();
             } 
             
             else if (Role.equals("Player")) 
             TeamHome.Team_home();
 
+        }
+        else
+        {
+            popup.popup_sreen("Invalid Credentials");
         }
 
         

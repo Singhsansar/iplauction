@@ -4,10 +4,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import Auctionhandeling.Getplayers;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -23,6 +23,7 @@ public class Login extends JFrame {
 	private static Login frame = new Login();
 	private static JPasswordField passwordField;
 	public static void main(String[] args) {
+		Getplayers.getplayer();
 		login();
 		//AuctionDisplay.enter_auction();
 		//Getplayers.getplayer();

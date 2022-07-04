@@ -6,6 +6,7 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import screens.AuctionDisplay;
+import screens.Myprofile;
 import screens.playerlist;
 import screens.popup;
 import com.mongodb.client.FindIterable;
@@ -42,6 +43,7 @@ public class Getplayers {
        String matches=(String)data.get("No of Ipl matches");
        String cua=(String)data.get("C/U/A");
        String  bp=(String)data.get("Base Price"); 
+       String email =(String)data.get("Email");
        list.add(name);
        list.add(age);
        list.add(country);
@@ -51,6 +53,7 @@ public class Getplayers {
        list.add(matches);
        list.add(cua);
        list.add(bp); 
+       list.add(email);
        linklist.add(list);
        System.out.println(); 
         
@@ -137,6 +140,23 @@ public class Getplayers {
           ex.printStackTrace();
       }
       popup.popup_sreen("Player Deleted Successfully");
+
+    }
+
+    public static void getmyprofile(String email)
+    {
+      // iterate through 
+      for (int i = 0; i < linklist.size(); i++) 
+      {
+        ArrayList<String> abc= linklist.get(i);
+        if(abc.get(9).equals(email))
+        {
+          Myprofile.myprofile(abc);
+        
+        }
+
+       
+      }
 
     }
     
