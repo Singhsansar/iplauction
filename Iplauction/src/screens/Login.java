@@ -23,10 +23,10 @@ public class Login extends JFrame {
 	private static Login frame = new Login();
 	private static JPasswordField passwordField;
 	public static void main(String[] args) {
-		//login();
+		login();
 		//AuctionDisplay.enter_auction();
 		//Getplayers.getplayer();
-		Adminhomepage.Admin_home();
+		//Adminhomepage.Admin_home();
 		//Signup.Register();
 		//AuctionDisplay.count_down();
 		//TeamHome.Team_home();
@@ -81,7 +81,7 @@ public class Login extends JFrame {
 							return;
 						}
 						CheckCredentials.validate(email, password);	
-						JOptionPane.showMessageDialog(textField,"Invalid Login ID/password");  
+						//JOptionPane.showMessageDialog(textField,"Invalid Login ID/password");  
 					}
 				});
 				btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 21));

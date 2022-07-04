@@ -128,15 +128,14 @@ public class Getplayers {
     public static void delete_this()
     { j = j -1; 
       linklist.remove(j);
+      get_one();
       try {
-        Thread.sleep(1500);   
+        Thread.sleep(500);   
       }
       catch (InterruptedException ex)
       {
           ex.printStackTrace();
       }
-
-      get_one();
       popup.popup_sreen("Player Deleted Successfully");
 
     }

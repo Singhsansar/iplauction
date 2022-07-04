@@ -21,7 +21,7 @@ public class Adminhomepage extends JFrame {
 	 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-					Getplayers.getplayer();
+					
 					frame.setVisible(true);
 					frame.setTitle("Homepage");
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,10 +31,6 @@ public class Adminhomepage extends JFrame {
 					frame.setContentPane(contentPane);
 					contentPane.setLayout(null);
 
-					
-
-
-
 					JButton btnNewButton = new JButton("RegisterTeam ");
 					btnNewButton.setForeground(Color.WHITE);
 					btnNewButton.setBackground(Color.ORANGE);
@@ -42,6 +38,7 @@ public class Adminhomepage extends JFrame {
 					btnNewButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) 
 						{
+							dispose_frame();
 							Registerteam.RegisterTeam();
 						}
 					});
@@ -54,7 +51,9 @@ public class Adminhomepage extends JFrame {
 					btnStartauction.setBackground(Color.ORANGE);
 					btnStartauction.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
-							Getplayers.get_next();
+							
+							dispose_frame();
+							Getplayers.get_same();
 						}
 					});
 					btnStartauction.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -66,6 +65,7 @@ public class Adminhomepage extends JFrame {
 					btnPlayers.setBackground(Color.ORANGE);
 					btnPlayers.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
+							dispose_frame();
 							Getplayers.get_one();
 						}
 					});

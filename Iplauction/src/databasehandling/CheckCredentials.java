@@ -2,6 +2,8 @@ package databasehandling;
 import org.bson.Document;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
+
+import Auctionhandeling.Getplayers;
 import screens.Adminhomepage;
 import screens.Login;
 import screens.TeamHome;
@@ -34,12 +36,18 @@ public class CheckCredentials
             pass = (String) data.get("password");
             Role = (String) data.get("Role");
         }
+        System.out.println(Email);
+        System.out.println(pass);
         
         if(Email.equals(email) && pass.equals(password))
         {
             Login.dispose_frame();
-            if(Role.equals("admin")) 
-            Adminhomepage.Admin_home();
+            if(Role.equals("admin"))
+            {
+                Getplayers.getplayer();
+                Adminhomepage.Admin_home();
+            } 
+            
             else if (Role.equals("Player")) 
             TeamHome.Team_home();
 
