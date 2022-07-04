@@ -53,7 +53,7 @@ public class Adminhomepage extends JFrame {
 						public void actionPerformed(ActionEvent e) {
 							
 							dispose_frame();
-							Getplayers.get_same();
+							Getplayers.get_same_admin();
 						}
 					});
 					btnStartauction.setFont(new Font("Tahoma", Font.BOLD, 20));

@@ -22,9 +22,16 @@ public class playerAuction extends JFrame {
 	static ArrayList<String> list;
 	private static JPanel contentPane;
     public static Object countdown;
+    String Email;
+
+   public playerAuction(String Email) 
+   {
+    this.Email=Email;
+    	
+    }
 
 
-	public static void enter_auction(ArrayList<String> arr) {
+	public  void enter_auction(ArrayList<String> arr) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 
@@ -52,7 +59,8 @@ public class playerAuction extends JFrame {
 						{
 							dispose_frame();
 							timer.cancel();
-							Adminhomepage.Admin_home();
+							Playerhome home = new Playerhome(Email);
+                            home.Player_home();
 						}
 					});
 
@@ -175,7 +183,7 @@ public class playerAuction extends JFrame {
 		timJLabel.setVisible(true);
 		 timer.scheduleAtFixedRate(new TimerTask() 
 		 {
-			 int i = 10;
+			 int i = 60;
 			 public void run() {
 				 timJLabel.setText("Time left: " + i);
 				 i--;

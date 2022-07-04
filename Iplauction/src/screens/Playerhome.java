@@ -3,6 +3,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Auctionhandeling.Getplayers;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -14,9 +17,16 @@ import javax.swing.ImageIcon;
 public class Playerhome extends JFrame
 {
     private static JPanel contentPane;
+    String Email;
+   public Playerhome(String Email)
+   {
+    this.Email=Email;
+
+   }
+
 
 	static TeamHome frame = new TeamHome();
-	public static void Player_home() {
+	public void Player_home() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				
@@ -34,7 +44,10 @@ public class Playerhome extends JFrame
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+            {
+                dispose_frame();
+                Getplayers.getmyprofile(Email);
 			}
 		});
 		btnNewButton.setBounds(106, 401, 220, 38);
@@ -42,7 +55,10 @@ public class Playerhome extends JFrame
 		
 		JButton btnEnterAuction = new JButton("See Auction");
 		btnEnterAuction.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+            {
+                dispose_frame();
+                Getplayers.seeAuction(Email);
 			}
 		});
 		btnEnterAuction.setFont(new Font("Tahoma", Font.PLAIN, 20));

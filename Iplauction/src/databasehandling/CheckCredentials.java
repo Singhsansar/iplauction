@@ -2,20 +2,15 @@ package databasehandling;
 import org.bson.Document;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.*;
-
-import Auctionhandeling.Getplayers;
 import screens.Adminhomepage;
 import screens.Login;
+import screens.Playerhome;
 import screens.TeamHome;
 import screens.popup;
 
-
-
-
-
-//Check data base for lgetting the password 
 public class CheckCredentials
 {
+    
      static  String url =userRegister.url;
      static  MongoClient mongoClient =  MongoClients.create(url);
      static MongoDatabase db = mongoClient.getDatabase("IPLAuction");
@@ -49,8 +44,14 @@ public class CheckCredentials
                 Adminhomepage.Admin_home();
             } 
             
-            else if (Role.equals("Player")) 
+            else if (Role.equals("TeamManager")) 
             TeamHome.Team_home();
+
+            else if (Role.equals("Player")) 
+            {
+                Playerhome home = new Playerhome(Email);
+                home.Player_home();
+            }
 
         }
         else

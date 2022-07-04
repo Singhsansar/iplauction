@@ -3,6 +3,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Auctionhandeling.Getplayers;
+import Auctionhandeling.Teamplayerhandeling;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -34,7 +38,10 @@ public class TeamHome extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBackground(Color.ORANGE);
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+
+			
 			}
 		});
 		btnNewButton.setBounds(106, 401, 220, 38);
@@ -42,7 +49,10 @@ public class TeamHome extends JFrame {
 		
 		JButton btnEnterAuction = new JButton("Enter Auction");
 		btnEnterAuction.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				dispose_frame();
+				Getplayers.get_same_team("abc");
 			}
 		});
 		btnEnterAuction.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -52,7 +62,10 @@ public class TeamHome extends JFrame {
 		
 		JButton btnMyplayers = new JButton("My_Players");
 		btnMyplayers.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				dispose_frame();
+				Teamplayerhandeling.getplayer();
 			}
 		});
 		btnMyplayers.setFont(new Font("Tahoma", Font.PLAIN, 20));

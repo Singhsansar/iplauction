@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 
 public class Myprofile extends JFrame {
     private static JPanel contentPane;
+   
 	static playerlist frame = new playerlist();
 
 	
@@ -149,8 +150,9 @@ public class Myprofile extends JFrame {
 		btnDeletePlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				frame.dispose();
-                Playerhome.Player_home();
+                dispose_frame();
+				Playerhome home = new Playerhome(arr.get(9).toString());
+                home.Player_home();
 			}
 		});
 		

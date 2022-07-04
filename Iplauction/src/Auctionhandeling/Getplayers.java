@@ -6,7 +6,9 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import screens.AuctionDisplay;
+import screens.AuctionDisplayteam;
 import screens.Myprofile;
+import screens.playerAuction;
 import screens.playerlist;
 import screens.popup;
 import com.mongodb.client.FindIterable;
@@ -123,9 +125,19 @@ public class Getplayers {
        }
        
     }
-    public static void get_same()
-    {ArrayList<String> abc= linklist.get(i);
-      AuctionDisplay.enter_auction(abc);}
+    public static void get_same_admin()
+    {
+      ArrayList<String> abc= linklist.get(i);
+      AuctionDisplay.enter_auction(abc);
+    
+    }
+    public static void get_same_team(String name)
+    {
+      ArrayList<String> abc= linklist.get(i);
+      AuctionDisplayteam team = new AuctionDisplayteam(name);
+      team.enter_auction(abc);
+    
+    }
 
 
     public static void delete_this()
@@ -159,5 +171,13 @@ public class Getplayers {
       }
 
     }
+    public static void seeAuction(String Email)
+      // iterate through 
+      {ArrayList<String> abc= linklist.get(i);
+        playerAuction auct = new playerAuction(Email);
+        auct.enter_auction(abc);
+       }
+
+    }
     
-}
+
