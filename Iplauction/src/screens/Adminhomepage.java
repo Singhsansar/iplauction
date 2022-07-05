@@ -52,7 +52,6 @@ public class Adminhomepage extends JFrame {
 					btnStartauction.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							
-							dispose_frame();
 							Getplayers.get_same_admin();
 						}
 					});

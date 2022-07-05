@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import screens.Adminhomepage;
 import screens.AuctionDisplay;
 import screens.AuctionDisplayteam;
 import screens.Myprofile;
+import screens.Playerhome;
+import screens.TeamHome;
 import screens.playerAuction;
 import screens.playerlist;
 import screens.popup;
@@ -57,43 +60,60 @@ public class Getplayers {
        list.add(bp); 
        list.add(email);
        linklist.add(list);
-       System.out.println(); 
         
       }
 
     }
     public static void get_next()
     {
-      ArrayList<String> abc= linklist.get(i);
+      
       i = i+1; 
       if(i<linklist.size())
-      AuctionDisplay.enter_auction(abc);
-      else if(i==linklist.size())
       {
-        popup.popup_sreen("Auction Finished");
-        try {
-          // Delay for 1 seonds
-          Thread.sleep(2000);   
-          }
-          catch (InterruptedException ex)
-          {
-            ex.printStackTrace();
-          }
-          popup.popup_close();
-          popup.popup_sreen("Starting with unsold players");
+        ArrayList<String> abc= linklist.get(i);
+        AuctionDisplay.dispose_frame();
+        AuctionDisplay.enter_auction(abc);
+      }
+      else if(i>=linklist.size())
+      {
+       
+        
+        if(i == linklist.size() && unsoldplayerhnadeling.Queue_empty())
+        {
+          popup.popup_sreen("Done with first Stage");
           try {
             // Delay for 1 seonds
-            Thread.sleep(2500);   
+            Thread.sleep(500);   
             }
             catch (InterruptedException ex)
             {
               ex.printStackTrace();
             }
+  
+            popup.popup_sreen("Starting with unsold players");
+            
+            try {
+              // Delay for 1 seonds
+              Thread.sleep(2500);   
+              }
+              catch (InterruptedException ex)
+              {
+                ex.printStackTrace();
+              }
+              unsoldplayerhnadeling.get_unsold();
+        }
+        else if(i>=linklist.size() && !unsoldplayerhnadeling.Queue_empty())
+        {
+          unsoldplayerhnadeling.get_unsold();
+        }
+        else 
+        {
+          popup.popup_sreen("No player Remains in Unsold List");
+        }
 
-        unsoldplayerhnadeling.get_unsold();
+        
       }
-      else 
-       unsoldplayerhnadeling.get_unsold();
+      
     }
 
 
@@ -127,15 +147,30 @@ public class Getplayers {
     }
     public static void get_same_admin()
     {
-      ArrayList<String> abc= linklist.get(i);
-      AuctionDisplay.enter_auction(abc);
+      if(i>=linklist.size())
+      {
+       popup.popup_sreen("Auction already Finished");
+      }
+      else 
+      {
+        Adminhomepage.dispose_frame();
+        ArrayList<String> abc= linklist.get(i);
+        AuctionDisplay.enter_auction(abc);
+      }
     
     }
     public static void get_same_team(String name)
     {
+      if(i>=linklist.size())
+      {
+       popup.popup_sreen("Auction already Finished");
+      }
+      else 
+      {
+        TeamHome.dispose_frame();
       ArrayList<String> abc= linklist.get(i);
-      AuctionDisplayteam team = new AuctionDisplayteam(name);
-      team.enter_auction(abc);
+      AuctionDisplayteam.set_initialamount(abc.get(8));
+      AuctionDisplayteam.enter_auction(abc,abc.get(8));}
     
     }
 
@@ -172,12 +207,18 @@ public class Getplayers {
 
     }
     public static void seeAuction(String Email)
-      // iterate through 
-      {ArrayList<String> abc= linklist.get(i);
+      {
+        if(i>=linklist.size())
+      {
+       popup.popup_sreen("Auction already Finished");
+      }
+      else
+       {
+        Playerhome.dispose_frame();
+        ArrayList<String> abc= linklist.get(i);
         playerAuction auct = new playerAuction(Email);
         auct.enter_auction(abc);
        }
+       }
 
     }
-    
-

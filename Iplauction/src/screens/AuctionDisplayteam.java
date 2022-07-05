@@ -3,6 +3,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Auctionhandeling.Teamplayerhandeling;
 import Auctionhandeling.unsoldplayerhnadeling;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -17,19 +19,18 @@ import java.util.TimerTask;
 public class AuctionDisplayteam extends JFrame {
 	static JLabel jLabel = new JLabel();
 	static AuctionDisplay frame = new AuctionDisplay();
-	ArrayList<String> list = new ArrayList<String>();
+	static ArrayList<String> list = new ArrayList<String>();
 	private static JPanel contentPane;
-	String name;
-	public AuctionDisplayteam(String name)
-	{
-		this.name = name ;
-	}
+	static String Team_id = "";
+	static String initial_amount ="";
+	static String final_amount = "";
 
-
-	public  void enter_auction(ArrayList<String> arr) {
+	public static  void enter_auction(ArrayList<String> arr, String amount) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-
+				
+		list = arr;
+		final_amount=amount;
 		frame.setVisible(true);
 		frame.setTitle("Auction Screen ");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,9 +46,7 @@ public class AuctionDisplayteam extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-			
-                Biddingpopup.Bid(); 
-                
+                Biddingpopup.Bid(Team_id); 
 			}
 		});
 		btnNewButton.setBounds(630, 507, 115, 33);
@@ -143,13 +142,13 @@ public class AuctionDisplayteam extends JFrame {
 		lblCua_2_1_1_1_1.setBounds(135, 421, 280, 42);
 		contentPane.add(lblCua_2_1_1_1_1);
 		
-		JLabel lblCua_2_1_1_1_1_1 = new JLabel(arr.get(8).toString());
+		JLabel lblCua_2_1_1_1_1_1 = new JLabel(arr.get(7).toString());
 		lblCua_2_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1.setBounds(667, 382, 155, 42);
 		contentPane.add(lblCua_2_1_1_1_1_1);
 		
-		JLabel lblCua_2_1_1_1_1_1_1 = new JLabel(arr.get(7).toString());
+		JLabel lblCua_2_1_1_1_1_1_1 = new JLabel(final_amount);
 		lblCua_2_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1_1.setBounds(641, 421, 155, 42);
@@ -170,10 +169,9 @@ public class AuctionDisplayteam extends JFrame {
 			}	
 		});
 	}
-	public static void count_down(ArrayList<String> arr)
+			public static void count_down(ArrayList<String> arr)
 	    {
-
-	        
+ 
 	       JLabel timJLabel = new JLabel();
 		   timJLabel.setForeground(Color.WHITE);
 		   timJLabel.setBounds(550, 20, 200, 50);
@@ -201,14 +199,23 @@ public class AuctionDisplayteam extends JFrame {
 	                          ex.printStackTrace();
 	                      }
 
+						  if(!final_amount.equals(initial_amount))
+						  {
+							Teamplayerhandeling.addplayer(list);
+							popup.popup_sreen("Congrats,You got the player");
+						  }
+						  else 
+						  {
+							//player remained unsold 
 							popup.popup_sreen("Player Remained Unsold");
 	                    	timJLabel.setText("Player Reamined unsold");
 							unsoldplayerhnadeling.add_unsold(arr);
+						  }
+						  
+							
 	                }
 	            }
-	        }, 0, 1000);
-			
-			
+	        }, 0, 1000);			
 	    }
 
 		
@@ -216,7 +223,29 @@ public class AuctionDisplayteam extends JFrame {
 	{
 		frame.dispose();
 	}	 
-	
+	 public static void set_entering_team_id(String Id)
+	 {
+		Team_id = Id;
+
+	 }
+	 public static void set_initialamount(String amount)
+	 {
+		initial_amount = amount;
+	 }
+
+	 public static void refresh(String amount)
+	{
+		if(amount.equals(initial_amount))
+		{
+			popup.popup_sreen("Enter a valid amount");
+		}
+		else 
+		{
+		frame.dispose();
+		enter_auction(list,amount);
+		}
+		
+	}
 	 
 	
 }

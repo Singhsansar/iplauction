@@ -20,6 +20,7 @@ public class CheckCredentials
         String Email = "";
         String pass = "";
         String Role ="";
+        String ID = "";
         db.getCollection("Users");
         MongoCollection<org.bson.Document> collection = db.getCollection("Users");
         BasicDBObject searchQuery = new BasicDBObject();
@@ -28,12 +29,14 @@ public class CheckCredentials
         
         while (cursor.hasNext()) {
            Document data =  cursor.next();
-            Email =(String) data.get("Email"); //return the email
-            pass = (String) data.get("password");
-            Role = (String) data.get("Role");
+            Email = (String) data.get("Email"); //return the email
+            pass  = (String) data.get("password");
+            Role  = (String) data.get("Role");
+            ID    = (String) data.get("ID");
+
         }
-        System.out.println(Email);
-        System.out.println(pass);
+        //System.out.println(Email);
+        //System.out.println(pass);
         
         if(Email.equals(email) && pass.equals(password))
         {
@@ -44,9 +47,13 @@ public class CheckCredentials
                 Adminhomepage.Admin_home();
             } 
             
-            else if (Role.equals("TeamManager")) 
-            TeamHome.Team_home();
-
+            else if (Role.equals("TeamManager"))
+            {
+                //get in with the team id;
+                TeamHome.set_teamid(ID);
+                TeamHome.Team_home();
+            } 
+            
             else if (Role.equals("Player")) 
             {
                 Playerhome home = new Playerhome(Email);

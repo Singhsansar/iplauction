@@ -20,8 +20,9 @@ public class Biddingpopup extends JFrame {
 	private static JPanel contentPane;
 	/**
 	 * Launch the application.
+	 * @param team_id
 	 */
-	public static void Bid() {
+	public static void Bid(String team_id) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 		
@@ -46,7 +47,20 @@ public class Biddingpopup extends JFrame {
 		
 		JButton btnNewButton = new JButton("Bid\r\n");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				String bid = textField.getText();
+				frame.dispose();
+				
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e1) {
+				
+					e1.printStackTrace();
+				}
+				AuctionDisplayteam.refresh(bid);
+				popup.popup_sreen(team_id+" bids "+ bid);
+
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 21));

@@ -4,6 +4,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import screens.Login;
+import screens.Registerteam;
+import screens.Signup;
 import screens.popup;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoClient;
@@ -29,6 +31,7 @@ public static boolean validate;
             docs.put("Email", list.get(0));
             docs.put("password",  list.get(1));
             docs.put("Amount",  list.get(5));
+
             if(!exists(list.get(0)))
             {
                 collection.insertOne(docs);
@@ -36,7 +39,7 @@ public static boolean validate;
             }
             else
             {
-                popup.popup_sreen("Email is already registered,Enter valid Email");
+                popup.popup_sreen("Email is already registered");
             }
             
     }
@@ -48,10 +51,22 @@ public static boolean validate;
             docs.put("Email", list.get(0));
             docs.put("password",list.get(1));
             docs.put("Role", role);
+            docs.put("ID", list.get(4));
             collection2.insertOne(docs); 
-            popup.popup_sreen("User added  successfully");  
+            if(!role.equals("TeamManager"))
+            {
+            Signup.dispose_frame();  
+            popup.popup_sreen("User added  successfully");
             Login.login();
-
+            }
+            else 
+            {
+                
+                Registerteam.dispose_frame();
+                Registerteam.RegisterTeam();
+                popup.popup_sreen("Team added successfully");
+            }
+            
     }
     public static boolean exists(String email)
     {

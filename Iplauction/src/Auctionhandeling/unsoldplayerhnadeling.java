@@ -4,9 +4,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 import screens.AuctionDisplay;
+import screens.popup;
 public class unsoldplayerhnadeling 
 {
     static Queue<ArrayList<String> > q = new LinkedList<ArrayList<String>>();
+
     public static void add_unsold(ArrayList<String> player  )
     {
         
@@ -24,11 +26,29 @@ public class unsoldplayerhnadeling
 
     public static void get_unsold( )
     {
-        
-       ArrayList<String> arr = new ArrayList<String>();
-       arr = q.remove();
-      AuctionDisplay.enter_auction(arr);
+        if(q.isEmpty())
+        {
+            popup.popup_sreen("No player Remains in List");
+        }  
+      else 
+      { ArrayList<String> arr = new ArrayList<String>();
+        arr = q.remove();
+       AuctionDisplay.enter_auction(arr);
     }
+    }
+
+    public static boolean Queue_empty()
+    {
+        if (q.isEmpty())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     
      
 }

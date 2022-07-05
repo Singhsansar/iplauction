@@ -3,7 +3,6 @@ package databasehandling;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import functions.Func;
 import com.mongodb.client.MongoClient;
 import java.util.ArrayList;
 import org.bson.Document;
@@ -31,7 +30,6 @@ public class userRegister
             docs.put("No of Ipl matches", list.get(5));
             docs.put("C/U/A",list.get(9));
             docs.put("Base Price",  list.get(10));
-            Func.print("-----------------player Added Successfully---------------------------------");
 
             if(!userdata.exists(list.get(0)))
             {

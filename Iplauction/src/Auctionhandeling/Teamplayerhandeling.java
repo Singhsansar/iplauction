@@ -2,7 +2,6 @@ package Auctionhandeling;
 import java.util.ArrayList;
 import java.util.Stack;
 import screens.Myplayers;
-import screens.TeamHome;
 import screens.popup;
 public class Teamplayerhandeling 
 {

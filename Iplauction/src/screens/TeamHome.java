@@ -3,10 +3,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Auctionhandeling.Getplayers;
 import Auctionhandeling.Teamplayerhandeling;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,13 +16,13 @@ import javax.swing.ImageIcon;
 public class TeamHome extends JFrame {
 
 	private static JPanel contentPane;
+	static String ID=" ";
 
 	static TeamHome frame = new TeamHome();
 	public static void Team_home() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				
-		
 		frame.setVisible(true);
 		frame.setTitle("TeamHomepage");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,24 +32,24 @@ public class TeamHome extends JFrame {
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Avaliable Balance");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBackground(Color.ORANGE);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) 
-			{
+		// JButton btnNewButton = new JButton("Avaliable Balance");
+		// btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		// btnNewButton.setBackground(Color.ORANGE);
+		// btnNewButton.addActionListener(new ActionListener() {
+		// 	public void actionPerformed(ActionEvent e) 
+		// 	{
 
 			
-			}
-		});
-		btnNewButton.setBounds(106, 401, 220, 38);
-		contentPane.add(btnNewButton);
+		// 	}
+		// });
+		// btnNewButton.setBounds(106, 401, 220, 38);
+		// contentPane.add(btnNewButton);
 		
 		JButton btnEnterAuction = new JButton("Enter Auction");
 		btnEnterAuction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				dispose_frame();
+				AuctionDisplayteam.set_entering_team_id(ID);
 				Getplayers.get_same_team("abc");
 			}
 		});
@@ -73,7 +71,7 @@ public class TeamHome extends JFrame {
 		btnMyplayers.setBounds(626, 401, 220, 38);
 		contentPane.add(btnMyplayers);
 		
-		JLabel lblNewLabel_1 = new JLabel("Welcome Team, Best of luck");
+		JLabel lblNewLabel_1 = new JLabel("Welcome"+ ID +", Best of luck");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setBackground(Color.WHITE);
@@ -84,7 +82,7 @@ public class TeamHome extends JFrame {
 					btnLogout.setForeground(Color.WHITE);
 					btnLogout.setFont(new Font("Tahoma", Font.BOLD, 20));
 					btnLogout.setBackground(Color.ORANGE);
-					btnLogout.setBounds(295, 422, 220, 40);
+					btnLogout.setBounds(106, 401, 220, 38);
 					contentPane.add(btnLogout);
 					btnLogout.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e)
@@ -115,5 +113,10 @@ public class TeamHome extends JFrame {
 	{
 		frame.dispose();
 	}
-
+	public static void set_teamid( String id)
+	{
+		ID=id;
+		
+	}
+	
 }

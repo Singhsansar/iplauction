@@ -64,7 +64,7 @@ public class playerlist extends JFrame {
 		btnNewButton.setBounds(630, 507, 115, 33);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNewLabel = new JLabel("Name:");
+		JLabel lblNewLabel = new JLabel("Name:"); // 0 is name
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel.setBounds(33, 140, 81, 42);
@@ -154,13 +154,13 @@ public class playerlist extends JFrame {
 		lblCua_2_1_1_1_1.setBounds(124, 400, 280, 42);
 		contentPane.add(lblCua_2_1_1_1_1);
 		
-		JLabel lblCua_2_1_1_1_1_1 = new JLabel(arr.get(8).toString());
+		JLabel lblCua_2_1_1_1_1_1 = new JLabel(arr.get(7).toString()); //capped uncaped 
 		lblCua_2_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1.setBounds(641, 192, 155, 42);
 		contentPane.add(lblCua_2_1_1_1_1_1);
 		
-		JLabel lblCua_2_1_1_1_1_1_1 = new JLabel(arr.get(7).toString());
+		JLabel lblCua_2_1_1_1_1_1_1 = new JLabel(arr.get(8).toString());  //base price of the player
 		lblCua_2_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1_1.setBounds(605, 254, 155, 42);

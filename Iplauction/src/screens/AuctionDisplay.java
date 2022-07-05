@@ -63,8 +63,9 @@ public class AuctionDisplay extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				//jframe_timer.dispose();
-				frame.dispose();
+		
 				jLabel.removeAll();
+				timer.cancel();
 				Getplayers.get_next();
 			}
 		});
@@ -161,13 +162,13 @@ public class AuctionDisplay extends JFrame {
 		lblCua_2_1_1_1_1.setBounds(135, 421, 280, 42);
 		contentPane.add(lblCua_2_1_1_1_1);
 		
-		JLabel lblCua_2_1_1_1_1_1 = new JLabel(arr.get(8).toString());
+		JLabel lblCua_2_1_1_1_1_1 = new JLabel(arr.get(7).toString());
 		lblCua_2_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1.setBounds(667, 382, 155, 42);
 		contentPane.add(lblCua_2_1_1_1_1_1);
 		
-		JLabel lblCua_2_1_1_1_1_1_1 = new JLabel(arr.get(7).toString());
+		JLabel lblCua_2_1_1_1_1_1_1 = new JLabel(arr.get(8).toString());
 		lblCua_2_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblCua_2_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblCua_2_1_1_1_1_1_1.setBounds(641, 421, 155, 42);

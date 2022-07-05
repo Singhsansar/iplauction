@@ -3,9 +3,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Auctionhandeling.Getplayers;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -57,7 +55,6 @@ public class Playerhome extends JFrame
 		btnEnterAuction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
             {
-                dispose_frame();
                 Getplayers.seeAuction(Email);
 			}
 		});
