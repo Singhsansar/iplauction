@@ -72,7 +72,7 @@ public class Playerhome extends JFrame
 							popup.popup_close();
 							dispose_frame();
 							Biddingpopup.dispose_frame();
-							AuctionDisplayteam.dispose_frame();
+							AuctionDisplay_team.dispose_frame();
 							Signup.dispose_frame();
 							Login.login();
 			}

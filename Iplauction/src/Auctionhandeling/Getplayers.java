@@ -7,7 +7,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import screens.Adminhomepage;
 import screens.AuctionDisplay;
-import screens.AuctionDisplayteam;
+import screens.AuctionDisplay_team;
 import screens.Myprofile;
 import screens.Playerhome;
 import screens.TeamHome;
@@ -169,8 +169,8 @@ public class Getplayers {
       {
         TeamHome.dispose_frame();
       ArrayList<String> abc= linklist.get(i);
-      AuctionDisplayteam.set_initialamount(abc.get(8));
-      AuctionDisplayteam.enter_auction(abc,abc.get(8));}
+      AuctionDisplay_team.set_initialamount(abc.get(8));
+      AuctionDisplay_team.enter_auction(abc,abc.get(8));}
     
     }
 

@@ -49,7 +49,7 @@ public class TeamHome extends JFrame {
 		btnEnterAuction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				AuctionDisplayteam.set_entering_team_id(ID);
+				AuctionDisplay_team.set_entering_team_id(ID);
 				Getplayers.get_same_team("abc");
 			}
 		});
@@ -93,7 +93,7 @@ public class TeamHome extends JFrame {
 							popup.popup_close();
 							dispose_frame();
 							Biddingpopup.dispose_frame();
-							AuctionDisplayteam.dispose_frame();
+							AuctionDisplay_team.dispose_frame();
 							Signup.dispose_frame();
 							Login.login();
 						

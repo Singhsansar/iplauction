@@ -23,6 +23,7 @@ public class playerAuction extends JFrame {
 	private static JPanel contentPane;
     public static Object countdown;
     String Email;
+	String amount ="";
 
    public playerAuction(String Email) 
    {
@@ -214,6 +215,7 @@ public class playerAuction extends JFrame {
 		public static void dispose_frame()
 		{
 		frame.dispose();
-		}	 
+		}	
+		
 	
 }

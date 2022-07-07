@@ -94,7 +94,7 @@ public class Adminhomepage extends JFrame {
 							popup.popup_close();
 							TeamHome.dispose_frame();
 							Biddingpopup.dispose_frame();
-							AuctionDisplayteam.dispose_frame();
+							AuctionDisplay_team.dispose_frame();
 							AuctionDisplay.dispose_frame();
 							Signup.dispose_frame();
 							Login.login();

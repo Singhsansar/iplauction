@@ -3,7 +3,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import Auctionhandeling.Teamplayerhandeling;
 import Auctionhandeling.unsoldplayerhnadeling;
 import javax.swing.JLabel;
@@ -16,7 +15,7 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.util.Timer;
 import java.util.TimerTask;
-public class AuctionDisplayteam extends JFrame {
+public class AuctionDisplay_team extends JFrame {
 	static JLabel jLabel = new JLabel();
 	static AuctionDisplay frame = new AuctionDisplay();
 	static ArrayList<String> list = new ArrayList<String>();
@@ -39,6 +38,21 @@ public class AuctionDisplayteam extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JButton homeButton = new JButton("Home ");
+					homeButton.setForeground(Color.WHITE);
+					homeButton.setFont(new Font("Tahoma", Font.BOLD, 17));
+					homeButton.setBackground(Color.BLACK);
+					homeButton.setBounds(20, 25, 140, 34);
+					contentPane.add(homeButton);
+					homeButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) 
+						{
+							dispose_frame();
+							//Adminhomepage.Admin_home();
+							Myplayers.backhome();
+						}
+					});
 		
 		JButton btnNewButton = new JButton("Bid");
 		btnNewButton.setBackground(Color.ORANGE);

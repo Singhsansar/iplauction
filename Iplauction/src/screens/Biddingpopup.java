@@ -58,7 +58,7 @@ public class Biddingpopup extends JFrame {
 				
 					e1.printStackTrace();
 				}
-				AuctionDisplayteam.refresh(bid);
+				AuctionDisplay_team.refresh(bid);
 				popup.popup_sreen(team_id+" bids "+ bid);
 
 			}

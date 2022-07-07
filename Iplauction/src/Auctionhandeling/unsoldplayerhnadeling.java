@@ -13,15 +13,15 @@ public class unsoldplayerhnadeling
     {
         
         q.add(player);
-        try {
-            // Delay for 1 seonds
-            Thread.sleep(2000);   
-          }
-          catch (InterruptedException ex)
-          {
-              ex.printStackTrace();
-          }
-        Getplayers.get_next();
+        // try {
+        //     // Delay for 1 seonds
+        //     Thread.sleep(2000);   
+        //   }
+        //   catch (InterruptedException ex)
+        //   {
+        //       ex.printStackTrace();
+        //   }
+        // Getplayers.get_next();
     }
 
     public static void get_unsold( )
@@ -48,6 +48,8 @@ public class unsoldplayerhnadeling
             return false;
         }
     }
+
+    
     
     
      
